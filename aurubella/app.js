@@ -2,6 +2,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const PORT = 8000;
 const router = require('./config/routes');
@@ -20,6 +21,8 @@ app.use(express.static(`${__dirname}/public`)); //sets up public filepath
 
 // middleware
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({extended: true}));
+
 // routes
 app.use(router);
 

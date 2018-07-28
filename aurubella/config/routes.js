@@ -10,13 +10,24 @@ const exhibitionController = require('../controllers/exhibitionController');
 router.route('/')
   .get((req, res) => res.render('pages/home'));
 
+router.route('/about')
+  .get((req, res) => res.render('pages/about'));
+
 // index - RESTful
 router.route('/exhibition')
-  .get(exhibitionController.index);
-  // .post(exhibitionController.create);
+  .get(exhibitionController.index)
+  .post(exhibitionController.create);
 
-router.route('/exhibition/:imageId') //change to imageId at some
-// point. The : just signals for express to cache the id of the record to params
-  .get(exhibitionController.show);
+router.route('/exhibition/new')
+  .get(exhibitionController.new);
+
+// remember to have any dynamic pages at the bottom
+router.route('/exhibition/:imageId')
+  .get(exhibitionController.show)
+  .edit(exhibitionController.edit)
+  .delete(exhibitionController.delete);
+
+router.route('/explore')
+  .get((req, res) => res.render('pages/explore'));
 
 module.exports = router;

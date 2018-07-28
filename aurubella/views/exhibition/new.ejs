@@ -1,0 +1,27 @@
+<form action="/exhibition" method="POST">
+
+  <div class="field">
+      <label class="label" for="imageURL">Image URL</label>
+    <div class="control">
+      <input class="input" type="text" name="imageURL">
+    </div>
+  </div>
+
+  <div class="field">
+      <label class="label" for="tags">Tags</label>
+    <div class="control">
+      <input class="input" type="text" name="tags">
+    </div>
+  </div>
+<%# need to add functionality where for each tag added, a new input appears
+onclick="nextTag()" in input%>
+  <div class="field">
+      <label class="label" for="caption">Caption</label>
+    <div class="control">
+      <input class="input" type="text" name="caption">
+    </div>
+  </div>
+
+  <button class="button is-primary">Contribute</button>
+
+</form>
