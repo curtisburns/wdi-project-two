@@ -1,0 +1,9 @@
+<h1>Hi, I'm the exhibition index</h1>
+
+<% images.forEach(image => { %>
+  <div class="">
+  <a href="/exhibition/<%= image.id %>" >
+    <img src="images/<%= image.imageURL %>" alt="<%= image.caption %>">
+  </a>
+  </div>
+<% }) %>

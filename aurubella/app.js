@@ -2,8 +2,13 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
+const morgan = require('morgan');
 const PORT = 8000;
 const router = require('./config/routes');
+
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/aurubella');
 
 // layouts
 app.set('view engine', 'ejs'); //sets up the template engine - ejs
@@ -14,7 +19,7 @@ app.set('views', `${__dirname}/views`); //sets up the views filepath
 app.use(express.static(`${__dirname}/public`)); //sets up public filepath
 
 // middleware
-
+app.use(morgan('dev'));
 // routes
 app.use(router);
 

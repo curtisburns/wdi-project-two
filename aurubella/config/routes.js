@@ -12,8 +12,11 @@ router.route('/')
 
 // index - RESTful
 router.route('/exhibition')
-  .get(exhibitionController.index)
-  .post(exhibitionController.create);
+  .get(exhibitionController.index);
+  // .post(exhibitionController.create);
 
+router.route('/exhibition/:imageId') //change to imageId at some
+// point. The : just signals for express to cache the id of the record to params
+  .get(exhibitionController.show);
 
 module.exports = router;

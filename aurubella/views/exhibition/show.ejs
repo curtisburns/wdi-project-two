@@ -1,0 +1,11 @@
+<h1><%= image.userUpload %></h1>
+<img src="/images/<%= image.imageURL %>" alt="<%= image.caption %>">
+
+<h2><%= image.dateOrTimeUploaded %></h1>
+<h2><%= image.caption %></h2>
+<% image.tags.forEach(tag => { %>
+  <a href='#'> <%= tag %> </a>
+<% }) %>
+
+<h2><%= image.likes %></h2>
+<h2><%= image.comments %></h2>

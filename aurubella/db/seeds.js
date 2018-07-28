@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird'); // set up promises for mongoose
 mongoose.connect('mongodb://localhost/aurubella');
 
-// build model
+// build db
 
 const Image = require('../models/image');
 
