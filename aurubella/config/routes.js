@@ -6,6 +6,8 @@
 // initiates file as router via express method
 const router = require('express').Router();
 const exhibitionController = require('../controllers/exhibitionController');
+const registrationController = require('../controllers/registrationController');
+const sessionController = require('../controllers/sessionController');
 
 // can only have on get per url - which makes sense...
 // home page
@@ -14,6 +16,9 @@ router.route('/')
 
 router.route('/about')
   .get((req, res) => res.render('pages/about'));
+
+router.route('/explore')
+  .get((req, res) => res.render('pages/explore'));
 
 // index - RESTful
 router.route('/exhibition')
@@ -33,7 +38,24 @@ router.route('/exhibition/:imageId')
 router.route('/exhibition/:imageId/edit')
   .get(exhibitionController.edit);
 
-router.route('/explore')
-  .get((req, res) => res.render('pages/explore'));
+
+//register new user
+router.route('/register/new')
+  .get(registrationController.new);
+
+router.route('/register')
+  .post(registrationController.create);
+
+// log in
+router.route('/session/new')
+  .get(sessionController.new);
+
+router.route('/session')
+  .post(sessionController.create);
+
+//is this RESTful?? come back to this.
+router.route('/session/delete')
+  .get(sessionController.delete);
+
 
 module.exports = router;

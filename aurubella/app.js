@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const router = require('./config/routes');
+const session = require('express-session');
+const flash = require('express-flash');
+const User = require('./models/user');
 const {PORT, DB_URI} = require('./config/environment');
 
 // set up mongoose
@@ -31,6 +34,26 @@ app.use(methodOverride((req) => {
     return method;
   }
 }));
+// this allows us to set up a sessionID and save to a cookie
+app.use(session({
+  secret: 'canCallThisAnything',
+  resave: false,
+  saveUninitialized: false
+}));
+// this allows us to check the cookie to determine if a user is logged in
+app.use((req, res, next) => {
+  if(!req.session.userId) return next();
+  User
+    .findById(req.session.userId)
+    .then(user => {
+      res.locals.user = user;
+      res.locals.isLoggedIn = true;
+      console.log(res.locals.isLoggedIn);
+      next();
+    });
+});
+
+app.use(flash());
 
 // routes
 app.use(router);
