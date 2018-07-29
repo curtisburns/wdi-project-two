@@ -1,0 +1,30 @@
+<form action="/exhibition/<%= image.id %>" method="POST">
+
+  <div class="field">
+      <label class="label" for="imageURL">Image URL</label>
+    <div class="control">
+      <input class="input" type="text" name="imageURL" value="<%= image.imageURL %>">
+    </div>
+  </div>
+
+
+<%# need to figure out how to push each tag input into an array and update. %>
+  <div class="field">
+      <label class="label" for="tags">Tags</label>
+        <div class="control">
+          <input class="input" type="text" name="tags" value="<%= image.tags %>">
+        </div>
+
+  </div>
+
+  <div class="field">
+      <label class="label" for="caption">Caption</label>
+    <div class="control">
+      <input class="input" type="text" name="caption" value="<%= image.caption %>">
+    </div>
+  </div>
+
+  <button class="button is-primary">Save</button>
+  <input type="hidden" name="_method" value="PUT">
+
+</form>

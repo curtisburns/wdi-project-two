@@ -6,6 +6,8 @@
 // initiates file as router via express method
 const router = require('express').Router();
 const exhibitionController = require('../controllers/exhibitionController');
+
+// can only have on get per url - which makes sense...
 // home page
 router.route('/')
   .get((req, res) => res.render('pages/home'));
@@ -21,11 +23,15 @@ router.route('/exhibition')
 router.route('/exhibition/new')
   .get(exhibitionController.new);
 
+
 // remember to have any dynamic pages at the bottom
 router.route('/exhibition/:imageId')
   .get(exhibitionController.show)
-  .edit(exhibitionController.edit)
-  .delete(exhibitionController.delete);
+  .delete(exhibitionController.delete)
+  .put(exhibitionController.update);
+
+router.route('/exhibition/:imageId/edit')
+  .get(exhibitionController.edit);
 
 router.route('/explore')
   .get((req, res) => res.render('pages/explore'));

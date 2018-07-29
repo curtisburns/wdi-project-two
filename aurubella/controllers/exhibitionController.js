@@ -11,9 +11,8 @@ function exhibitionsIndex(req, res) {
 }
 
 function exhibitionsShow(req, res) {
-  const id = req.params.imageId;
   Image
-    .findById(id)
+    .findById(req.params.imageId)
     .then(image => res.render('exhibition/show', { image }));
 }
 
@@ -30,9 +29,21 @@ function exhibitionsCreate(req, res) {
 }
 
 function exhibitionsEdit(req, res) {
-
+  Image
+    .findById(req.params.imageId)
+    .then(image => res.render('exhibition/edit', { image }))
+    .catch(err => res.status(404).send(err));
 }
+
 function exhibitionsUpdate(req, res) {
+  req.body.tags = req.body.tags.split(' ');
+  Image
+    .findByIdAndUpdate(req.params.imageId, req.body)
+    .then(image => res.redirect(`/exhibition/${image.id}`))
+    .catch(err => res.status(500).send(err));
+}
+
+function exhibitionsDelete(req, res) {
 
 }
 
@@ -44,5 +55,6 @@ module.exports = {
   new: exhibitionsNew,
   create: exhibitionsCreate,
   edit: exhibitionsEdit,
-  update: exhibitionsUpdate
+  update: exhibitionsUpdate,
+  delete: exhibitionsDelete
 };

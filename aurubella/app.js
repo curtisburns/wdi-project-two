@@ -3,9 +3,11 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const morgan = require('morgan');
 const PORT = 8000;
 const router = require('./config/routes');
+
 
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
@@ -22,6 +24,13 @@ app.use(express.static(`${__dirname}/public`)); //sets up public filepath
 // middleware
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride((req) => {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    const method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
 
 // routes
 app.use(router);
