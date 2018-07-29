@@ -1,7 +1,9 @@
 // require mongoose and set up
+const {DB_URI} = require('../config/environment'); //test deconstructing with
+//one variable - works.
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird'); // set up promises for mongoose
-mongoose.connect('mongodb://localhost/aurubella');
+mongoose.connect(DB_URI);
 
 // build db
 

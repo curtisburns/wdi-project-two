@@ -5,13 +5,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
-const PORT = 8000;
 const router = require('./config/routes');
+const {PORT, DB_URI} = require('./config/environment');
 
-
+// set up mongoose
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/aurubella');
+mongoose.connect(DB_URI);
 
 // layouts
 app.set('view engine', 'ejs'); //sets up the template engine - ejs
