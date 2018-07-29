@@ -5,10 +5,14 @@ function registrationsNew(req, res) {
 }
 
 function registrationsCreate(req, res) {
+  req.body.followers = 0; //Sets followers to zero on register
   User
     .create(req.body)
-    .then(() => res.redirect('/exhibition'))
-    .catch(err => res.status(400).send(err));
+    .then((user) => {
+      req.session.userId = user.id;
+      res.redirect('/exhibition')
+        .catch(err => res.status(400).send(err));
+    });
 }
 
 module.exports = {

@@ -25,8 +25,16 @@ function sessionsDelete(req, res) {
   });
 }
 
+function sessionsShow(req, res) {
+  User
+    .findById(req.params.sessionId)
+    .then(user => res.render('sessions/show', { user }));
+}
+
+
 module.exports = {
   new: sessionsNew, //form
   create: sessionsCreate, //log in
-  delete: sessionsDelete //log out
+  delete: sessionsDelete, //log out
+  show: sessionsShow //profile - this needs to be queried - correct place for profile?
 };

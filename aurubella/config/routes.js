@@ -57,5 +57,8 @@ router.route('/session')
 router.route('/session/delete')
   .get(sessionController.delete);
 
+router.route('/session/:sessionId')
+  .get(sessionController.show);
+
 
 module.exports = router;
