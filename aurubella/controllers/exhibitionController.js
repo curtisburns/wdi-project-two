@@ -44,7 +44,10 @@ function exhibitionsUpdate(req, res) {
 }
 
 function exhibitionsDelete(req, res) {
-
+  Image
+    .findByIdAndDelete(req.params.imageId)
+    .then(() => res.redirect('/exhibition'))
+    .catch(err => res.status(404).send(err));
 }
 
 
