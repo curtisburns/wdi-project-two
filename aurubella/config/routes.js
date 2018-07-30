@@ -8,9 +8,24 @@ const router = require('express').Router();
 const exhibitionController = require('../controllers/exhibitionController');
 const registrationController = require('../controllers/registrationController');
 const sessionController = require('../controllers/sessionController');
+const commentController = require('../controllers/commentController');
+
+
+function secureRoute(req, res, next) {
+  if (!req.session.userId) {
+    // User is not logged in. Disallow!
+    return req.session.regenerate(() => {
+      req.flash('danger', 'Please log in or register');
+      res.redirect('/');
+    });
+  }
+
+  return next();
+}
 
 // can only have on get per url - which makes sense...
 // home page
+//This should only be accessible if not logged in. Otherwise, home is exhibition
 router.route('/')
   .get((req, res) => res.render('pages/home'));
 
@@ -18,25 +33,25 @@ router.route('/about')
   .get((req, res) => res.render('pages/about'));
 
 router.route('/explore')
-  .get((req, res) => res.render('pages/explore'));
+  .get(secureRoute, (req, res) => res.render('pages/explore'));
 
 // index - RESTful
 router.route('/exhibition')
-  .get(exhibitionController.index)
-  .post(exhibitionController.create);
+  .get(secureRoute, exhibitionController.index)
+  .post(secureRoute,exhibitionController.create);
 
 router.route('/exhibition/new')
-  .get(exhibitionController.new);
+  .get(secureRoute, exhibitionController.new);
 
 
 // remember to have any dynamic pages at the bottom
 router.route('/exhibition/:imageId')
-  .get(exhibitionController.show)
-  .delete(exhibitionController.delete)
-  .put(exhibitionController.update);
+  .get(secureRoute, exhibitionController.show)
+  .delete(secureRoute, exhibitionController.delete)
+  .put(secureRoute, exhibitionController.update);
 
 router.route('/exhibition/:imageId/edit')
-  .get(exhibitionController.edit);
+  .get(secureRoute, exhibitionController.edit);
 
 
 //register new user
@@ -55,10 +70,15 @@ router.route('/session')
 
 //is this RESTful?? come back to this.
 router.route('/session/delete')
-  .get(sessionController.delete);
+  .get(secureRoute, sessionController.delete);
 
 router.route('/session/:sessionId')
-  .get(sessionController.show);
+  .get(secureRoute, sessionController.show);
 
+router.route('/exhibition/:imageId/comments')
+  .post(commentController.create);
+
+router.route('/exhibition/:imageId/comments/:commentId')
+  .delete(commentController.delete);
 
 module.exports = router;

@@ -8,46 +8,81 @@ mongoose.connect(DB_URI);
 // build db
 
 const Image = require('../models/image');
+const User = require('../models/user');
+const users = [{
+  profilePicture: 'imageplaceholder.png',
+  username: 'curtis1234',
+  email: 'email@email.com',
+  password: 'pass',
+  confirmPassword: 'pass',
+  followers: ['string', 'string'],
+  following: ['string', 'string'],
+  imagesPosted: ['string', 'string']
+}, {
+  profilePicture: 'imageplaceholder.png',
+  username: 'bob1234',
+  email: 'email1@email.com',
+  password: 'pass',
+  confirmPassword: 'pass',
+  followers: ['string', 'string'],
+  following: ['string', 'string'],
+  imagesPosted: ['string', 'string']
+}, {
+  profilePicture: 'imageplaceholder.png',
+  username: 'andy1234',
+  email: 'email2@email.com',
+  password: 'pass',
+  confirmPassword: 'pass',
+  followers: ['string', 'string'],
+  following: ['string', 'string'],
+  imagesPosted: ['string', 'string']
+}];
+
 
 Image.collection.drop();
+User.collection.drop();
 
-Image
-  .create([
-    {
-      userUpload: 'curtis1234',
-      imageURL: 'imageplaceholder.png',
-      dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
-      tags: [
-        'baroque', 'power', 'gold'
-      ],
-      caption: 'Artist: blah blah 1786',
-      likes: 0,
-      comments: [],
-      bookmarkedBy: []
-    },{
-      userUpload: 'andy1234',
-      imageURL: 'imageplaceholder.png',
-      dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
-      tags: [
-        'renaissance'
-      ],
-      caption: 'Artist: blah blah',
-      likes: 12,
-      comments: [],
-      bookmarkedBy: []
-    },{
-      userUpload: 'bob1234',
-      imageURL: 'imageplaceholder.png',
-      dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
-      tags: [
-        'neoclassical', 'impactful'
-      ],
-      caption: 'Artist: blah',
-      likes: 2,
-      comments: [],
-      bookmarkedBy: []
-    }
-  ])
+User
+  .create(users)
+  .then(users => {
+    return Image
+      .create([
+        {
+          uploadedBy: users[0].id,
+          imageURL: 'imageplaceholder.png',
+          dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
+          tags: [
+            'baroque', 'power', 'gold'
+          ],
+          caption: 'Artist: blah blah 1786',
+          likes: [],
+          comments: [],
+          bookmarkedBy: []
+        },{
+          uploadedBy: users[1].id,
+          imageURL: 'imageplaceholder.png',
+          dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
+          tags: [
+            'renaissance'
+          ],
+          caption: 'Artist: blah blah',
+          likes: [],
+          comments: [],
+          bookmarkedBy: []
+        },{
+          uploadedBy: users[2].id,
+          imageURL: 'imageplaceholder.png',
+          dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
+          tags: [
+            'neoclassical', 'impactful'
+          ],
+          caption: 'Artist: blah',
+          likes: [],
+          comments: [],
+          bookmarkedBy: []
+        }
+      ]);
+  })
   .then(images => console.log(`Created ${images.length} images`))
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());

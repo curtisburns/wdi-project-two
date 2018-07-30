@@ -5,7 +5,8 @@ function registrationsNew(req, res) {
 }
 
 function registrationsCreate(req, res) {
-  req.body.followers = 0; //Sets followers to zero on register
+  req.body.followers = []; //Sets up followers array on register
+  req.body.following = []; //Set up following array on register
   User
     .create(req.body)
     .then((user) => {

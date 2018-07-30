@@ -12,7 +12,11 @@
 
 <a class="button" href="/exhibition/<%= image.id %>/edit">Edit</a>
 
+<%#need to make it so that you can only edit and delete your own photos %>
 <form class="field" action="/exhibition/<%= image.id %>" method="POST">
   <button>Delete</button>
   <input type="hidden" name="_method" value="DELETE">
 </form>
+
+<%- include('../comments/index', { image }) %>
+<%- include('../comments/new', { image }) %>

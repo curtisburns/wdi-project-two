@@ -4,6 +4,7 @@ const Image = require('../models/image');
 function exhibitionsIndex(req, res) {
   Image
     .find()
+    .populate('uploadedBy')
     .then(images => {
       console.log(images);
       res.render('exhibition/index', { images });
@@ -19,12 +20,21 @@ function exhibitionsShow(req, res) {
 function exhibitionsNew(req, res) {
   res.render('exhibition/new');
 }
-
+//.populate(comments.createby)
+//need to fix
 function exhibitionsCreate(req, res) {
-  req.body.tags = req.body.tags.split(' ');
+  req.body.uploadedBy = req.session.userId;
+  req.body.tags = req.body.tags.split('#').map(tag =>
+    tag = '#' + tag.trim()
+  );
   Image
     .create(req.body)
-    .then(() => res.redirect('/exhibition'))
+    // .then((image) => {
+    //   req.session.userId.imagesPosted.push(image.id);
+    // })
+    .then(() => {
+      res.redirect('/exhibition');
+    })
     .catch(err => res.status(500).send(err));
 }
 
@@ -56,7 +66,7 @@ module.exports = {
   index: exhibitionsIndex,
   show: exhibitionsShow,
   new: exhibitionsNew,
-  create: exhibitionsCreate,
+  create: exhibitionsCreate, // This has to be imagesCreate
   edit: exhibitionsEdit,
   update: exhibitionsUpdate,
   delete: exhibitionsDelete

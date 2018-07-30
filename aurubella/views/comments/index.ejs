@@ -1,0 +1,19 @@
+<% image.comments.forEach(comment => { %>
+
+<article class="media">
+
+
+
+  <div class="media-content">
+    <div class="content">
+      <p> <%=comment.username %>
+      </p>
+      <p> <%= comment.content %>
+      </p>
+    </div>
+  </div>
+</article>
+
+
+
+<% }) %>

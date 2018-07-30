@@ -7,15 +7,27 @@ const bcrypt = require('bcrypt');
 
 // setup schema for user
 const userSchema = new mongoose.Schema({
+  profilePicture: {type: String, required: true},
   username: {type: String, required: true},
   email: {type: String, required: true},
   password: {type: String, required: true},
-  followers: Number
+  followers: [{type: String}],
+  following: [{type: String}],
+  imagesPosted: [{type: String}]
 });
+
+// NOTE: You can use this later as:
+// User.find().then(user => user.imagesPosted()).then(images => {
+//  // Now you've got the user's images
+// })
+//userSchema.methods.imagesPosted = function() {
+//  return Image
+//    .find({ uploadedBy: this.id });
+//};
 
 // create a method on which we can call to check if log in password is correct
 userSchema.methods.validatePassword = function(password) {
-  console.log(password, this.password);
+  // console.log(password, this.password);
   return bcrypt.compareSync(password, this.password);
 };
 
