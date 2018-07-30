@@ -17,6 +17,7 @@ function commentsDelete(req, res, next) {
     .then(image => {
       image.comments = image.comments.filter(comment => comment.id !== req.params.commentId
       );
+      console.log(image.comments);
       return image.save();
     })
     .then(image => res.redirect(`/images/${image.id}`))

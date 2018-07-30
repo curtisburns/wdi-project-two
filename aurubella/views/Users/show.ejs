@@ -7,30 +7,25 @@
 
       </div>
       <div class="column is-one-half-desktop is-one-half-tablet is-full-mobile">
-        <h1><%= user.username %></h1>
+        <h1><%= _user.username %></h1>
 
-          <h2><%=user.imagesPosted.length%> posts</h2>
+          <h2><%=images.length%> posts</h2>
 
-        <a href="/session/<%=user.id%>/followers">
-          <h2><%=user.followers.length%> followers</h2>
+        <a href="/user/<%=_user.id%>/followers">
+          <h2><%=_user.followers.length%> followers</h2>
         </a>
 
-        <a href="/session/<%=user.id%>/following">
-          <h2><%=user.following.length%> following</h2>
+        <a href="/user/<%=_user.id%>/following">
+          <h2><%=_user.following.length%> following</h2>
         </a>
       </div>
     </div>
     <div class="columns is-multiline is-mobile">
-      <% user.imagesPosted.forEach(imagePosted => {
-        image.forEach(imageStored => {
-          if(imageStored.id === imagePosted) { %>
-          <img src="images/<%= imageStored.imageURL %>" alt="images/<%= imageStored.caption %>">
-        <% }
-         })
-       }) %>
-      <div class="column is-4-desktop is-4-tablet is-full-mobile">
-
-      </div>
+      <% images.forEach(image => { %>
+        <div class="column is-4-desktop is-4-tablet is-full-mobile">
+        <img src="../images/<%= image.imageURL %>" alt="images/<%= image.caption %>">
+        </div>
+      <% }) %>
     </div>
   </div>
 </section>

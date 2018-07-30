@@ -1,25 +1,37 @@
 <section class="section">
 <% image.comments.forEach(comment => { %>
 
-<article class="media">
+  <div class="columns">
+    <div class="column is-11">
+      <article class="media">
+        <figure class="media-left" >
+          <p class="image is-64x64">
+            <img src="../images/<%= locals.user.profilePicture %>" alt="">
+          </p>
+        </figure>
 
-  <figure class="media-left" >
-    <p class="image is-64x64">
-      <img src="../images/<%= locals.user.profilePicture %>" alt="">
-    </p>
-  </figure>
-
-  <div class="media-content">
-    <div class="content">
-      <p> <%=comment.username %>
-      </p>
-      <p> <%= comment.content %>
-      </p>
+        <div class="media-content">
+          <div class="content">
+            <p> <%=comment.username %>
+            </p>
+            <p> <%= comment.content %>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="column is-1">
+    <% if (locals.isLoggedIn && locals.user.username === comment.username) { %>
+      <form action="/images/<%= image.id %>/comments/<%= comment.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="button is-danger">x</button>
+      </form>
+    <% } %>
     </div>
   </div>
-</article>
-
 
 
 <% }) %>
 </section>
+
+<%- include('../comments/new', { image }) %>
