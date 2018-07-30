@@ -11,7 +11,7 @@ function registrationsCreate(req, res) {
     .create(req.body)
     .then((user) => {
       req.session.userId = user.id;
-      res.redirect('/exhibition')
+      res.redirect('/images')
         .catch(err => res.status(400).send(err));
     });
 }

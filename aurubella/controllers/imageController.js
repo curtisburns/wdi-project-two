@@ -1,28 +1,28 @@
 // require the model
 const Image = require('../models/image');
 
-function exhibitionsIndex(req, res) {
+function imagesIndex(req, res) {
   Image
     .find()
     .populate('uploadedBy')
     .then(images => {
       console.log(images);
-      res.render('exhibition/index', { images });
+      res.render('images/index', { images });
     });
 }
 
-function exhibitionsShow(req, res) {
+function imagesShow(req, res) {
   Image
     .findById(req.params.imageId)
-    .then(image => res.render('exhibition/show', { image }));
+    .then(image => res.render('images/show', { image }));
 }
 
-function exhibitionsNew(req, res) {
-  res.render('exhibition/new');
+function imagesNew(req, res) {
+  res.render('images/new');
 }
 //.populate(comments.createby)
 //need to fix
-function exhibitionsCreate(req, res) {
+function imagesCreate(req, res) {
   req.body.uploadedBy = req.session.userId;
   req.body.tags = req.body.tags.split('#').map(tag =>
     tag = '#' + tag.trim()
@@ -33,41 +33,41 @@ function exhibitionsCreate(req, res) {
     //   req.session.userId.imagesPosted.push(image.id);
     // })
     .then(() => {
-      res.redirect('/exhibition');
+      res.redirect('/images');
     })
     .catch(err => res.status(500).send(err));
 }
 
-function exhibitionsEdit(req, res) {
+function imagesEdit(req, res) {
   Image
     .findById(req.params.imageId)
-    .then(image => res.render('exhibition/edit', { image }))
+    .then(image => res.render('images/edit', { image }))
     .catch(err => res.status(404).send(err));
 }
 
-function exhibitionsUpdate(req, res) {
+function imagesUpdate(req, res) {
   req.body.tags = req.body.tags.split(' ');
   Image
     .findByIdAndUpdate(req.params.imageId, req.body)
-    .then(image => res.redirect(`/exhibition/${image.id}`))
+    .then(image => res.redirect(`/images/${image.id}`))
     .catch(err => res.status(500).send(err));
 }
 
-function exhibitionsDelete(req, res) {
+function imagesDelete(req, res) {
   Image
     .findByIdAndDelete(req.params.imageId)
-    .then(() => res.redirect('/exhibition'))
+    .then(() => res.redirect('/images'))
     .catch(err => res.status(404).send(err));
 }
 
 
 // define the exports
 module.exports = {
-  index: exhibitionsIndex,
-  show: exhibitionsShow,
-  new: exhibitionsNew,
-  create: exhibitionsCreate, // This has to be imagesCreate
-  edit: exhibitionsEdit,
-  update: exhibitionsUpdate,
-  delete: exhibitionsDelete
+  index: imagesIndex,
+  show: imagesShow,
+  new: imagesNew,
+  create: imagesCreate, // This has to be imagesCreate
+  edit: imagesEdit,
+  update: imagesUpdate,
+  delete: imagesDelete
 };

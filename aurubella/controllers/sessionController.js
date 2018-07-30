@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Image = require('../models/image');
+
 
 function sessionsNew(req, res) {
   res.render('sessions/new');
@@ -15,7 +15,7 @@ function sessionsCreate(req, res) {
         res.status(401).render('sessions/new');
       } else {
         req.session.userId = user.id;
-        res.redirect('/exhibition');
+        res.redirect('/images');
       }
     });
 }
@@ -26,22 +26,9 @@ function sessionsDelete(req, res) {
   });
 }
 
-function sessionsShow(req, res) {
-  User
-    .findById(req.params.sessionId)
-    .then(user => {
-      Image
-        .find()
-        .then(image => {
-          res.render('sessions/show', { user, image });
-        });
-    });
-}
-
 
 module.exports = {
   new: sessionsNew, //form
   create: sessionsCreate, //log in
-  delete: sessionsDelete, //log out
-  show: sessionsShow //profile - TODO: Move this to userController.show
+  delete: sessionsDelete //log out
 };

@@ -1,5 +1,5 @@
 <section class="section">
-<form class="" action="/exhibition/<%= image.id %>/comments" method="POST">
+<form class="" action="/images/<%= image.id %>/comments" method="POST">
   <div class="media-content">
     <div class="field">
       <p class="control">
@@ -8,7 +8,7 @@
     </div>
     <div class="field">
       <p class-"control">
-        <input type="hidden" name="name" value="<%=locals.user.username %>">
+        <input type="hidden" name="username" value="<%=locals.user.username %>">
         <button class="button">Post comment</button>
       </p>
     </div>

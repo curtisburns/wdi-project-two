@@ -7,7 +7,7 @@ function commentsCreate(req, res) {
       image.comments.push(req.body);
       return image.save();
     })
-    .then(image => res.redirect(`/exhibition/${image.id}`))
+    .then(image => res.redirect(`/images/${image.id}`))
     .catch(err => console.log(err));
 }
 
@@ -19,7 +19,7 @@ function commentsDelete(req, res, next) {
       );
       return image.save();
     })
-    .then(image => res.redirect(`/exhibition/${image.id}`))
+    .then(image => res.redirect(`/images/${image.id}`))
     .catch(next);
 }
 

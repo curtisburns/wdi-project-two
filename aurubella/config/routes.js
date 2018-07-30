@@ -5,10 +5,11 @@
 
 // initiates file as router via express method
 const router = require('express').Router();
-const exhibitionController = require('../controllers/exhibitionController');
+const imageController = require('../controllers/imageController');
 const registrationController = require('../controllers/registrationController');
 const sessionController = require('../controllers/sessionController');
 const commentController = require('../controllers/commentController');
+const userController = require('../controllers/userController');
 
 
 function secureRoute(req, res, next) {
@@ -25,7 +26,7 @@ function secureRoute(req, res, next) {
 
 // can only have on get per url - which makes sense...
 // home page
-//This should only be accessible if not logged in. Otherwise, home is exhibition
+//This should only be accessible if not logged in. Otherwise, home is images
 router.route('/')
   .get((req, res) => res.render('pages/home'));
 
@@ -36,22 +37,22 @@ router.route('/explore')
   .get(secureRoute, (req, res) => res.render('pages/explore'));
 
 // index - RESTful
-router.route('/exhibition')
-  .get(secureRoute, exhibitionController.index)
-  .post(secureRoute,exhibitionController.create);
+router.route('/images')
+  .get(secureRoute, imageController.index)
+  .post(secureRoute,imageController.create);
 
-router.route('/exhibition/new')
-  .get(secureRoute, exhibitionController.new);
+router.route('/images/new')
+  .get(secureRoute, imageController.new);
 
 
 // remember to have any dynamic pages at the bottom
-router.route('/exhibition/:imageId')
-  .get(secureRoute, exhibitionController.show)
-  .delete(secureRoute, exhibitionController.delete)
-  .put(secureRoute, exhibitionController.update);
+router.route('/images/:imageId')
+  .get(secureRoute, imageController.show)
+  .delete(secureRoute, imageController.delete)
+  .put(secureRoute, imageController.update);
 
-router.route('/exhibition/:imageId/edit')
-  .get(secureRoute, exhibitionController.edit);
+router.route('/images/:imageId/edit')
+  .get(secureRoute, imageController.edit);
 
 
 //register new user
@@ -72,13 +73,13 @@ router.route('/session')
 router.route('/session/delete')
   .get(secureRoute, sessionController.delete);
 
-router.route('/session/:sessionId')
-  .get(secureRoute, sessionController.show);
+router.route('/user/:userId')
+  .get(secureRoute, userController.show);
 
-router.route('/exhibition/:imageId/comments')
+router.route('/images/:imageId/comments')
   .post(commentController.create);
 
-router.route('/exhibition/:imageId/comments/:commentId')
+router.route('/images/:imageId/comments/:commentId')
   .delete(commentController.delete);
 
 module.exports = router;
