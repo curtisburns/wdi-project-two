@@ -20,10 +20,11 @@ const userSchema = new mongoose.Schema({
 // User.find().then(user => user.imagesPosted()).then(images => {
 //  // Now you've got the user's images
 // })
-//userSchema.methods.imagesPosted = function() {
-//  return Image
-//    .find({ uploadedBy: this.id });
-//};
+
+// userSchema.methods.imagesPosted = function() {
+//   return Image
+//     .find({ uploadedBy: this.id });
+// };
 
 // create a method on which we can call to check if log in password is correct
 userSchema.methods.validatePassword = function(password) {

@@ -1,3 +1,5 @@
+<section class="section">
+
 <h1><%= image.userUpload %></h1>
 <img src="/images/<%= image.imageURL %>" alt="<%= image.caption %>">
 
@@ -16,6 +18,6 @@
   <button>Delete</button>
   <input type="hidden" name="_method" value="DELETE">
 </form>
-
+</section>
 <%- include('../comments/index', { image }) %>
 <%- include('../comments/new', { image }) %>
