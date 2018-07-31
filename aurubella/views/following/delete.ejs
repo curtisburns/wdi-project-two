@@ -3,6 +3,9 @@
     <form action="/user/<%= locals.user.id %>/following/<%= _user.id%>" method="POST">
       <button class="button is-info">following</button>
       <input type="hidden" name="_method" value="DELETE">
+
+      <input type="hidden" name="userToUnfollow" value="<%= _user.id %>">
+
     </form>
   <% } %>
 <% }) %>

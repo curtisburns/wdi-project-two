@@ -1,8 +1,7 @@
 //Current task
+//// TODO: bug where I click on someone elses followers/following, it change res.locals to them.
 
 
-//// TODO: Fix bug where saving the amended user cannot be done because password
-//confirm says it does not match - have disabled in the meantime.
 //// TODO: Add other peoples profile page - option for private?
 // TODO: Add option to edit profile - function ready to set up
 // TODO: Add option to delete your profile - maybe add property to user
@@ -58,3 +57,5 @@
 // TODO: need to make it so that you can only edit and delete your own photos
 // TODO: cannot push image id into the users imagePosted array and save it.
 // TODO: Use populate to tie two models together.
+//// TODO: Fix bug where saving the amended user cannot be done because password
+//confirm says it does not match - have disabled in the meantime.

@@ -5,6 +5,6 @@
         <button class="button">follow</button>
       </form>
     <% } else { %>
-      <%-include('../following/delete', _user) %>
+      <%-include('../following/delete', { _user }) %>
   <% } %>
 <% } %>

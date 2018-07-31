@@ -4,18 +4,20 @@ function followingCreate(req, res) {
   //I might just keep track of following, then followers can be checked against
   //every user that has their name in their following.
 
-  // console.log(req.params.userId);
+  // console.log(`this is the current user ${req.params.id}`);
   User
     .findById(req.params.id)
-    .then(loggedInUser => {
-      console.log('loggedInUser before update ->', loggedInUser);
-      loggedInUser.following.push(req.body.userToFollow);
-      console.log('loggedInUser after update ->', loggedInUser);
-      return loggedInUser.save(); //can I update the followers as well?
+    .then(userLoggedIn => {
+      userLoggedIn.following.push(req.body.userToFollow);
+      return userLoggedIn.save();
     })
-    .then(() => {
-      console.log('this is the req header' + req.headers['referer']);
-      res.redirect(req.headers['referer']);
+    .then((userLoggedIn) => {
+      return User
+        .findById(req.body.userToFollow)
+        .then(user => {
+          user.addToFollowers(userLoggedIn);
+          res.redirect(req.headers['referer']);
+        }); //back to previous page
     })
     .catch(err => console.log(err));
 }
@@ -29,24 +31,25 @@ function followingIndex(req, res) {
 }
 
 function followingDelete(req, res) {
-// //Need to remove from array
-//   const userBeingViewed = req.params.userId;
-//   User
-//     .findById(req.session.userId)
-//     .then(user => {
-//       user.following = user.following.filter(userFollowing =>
-//         userFollowing.id !== req.params.followingId);
-//       return user.save();
-//     })
-//     .then(user => {
-//       const currentUser = user.id;
-//       User
-//         .findById(userBeingViewed)
-//         .then(user => user.removeFromFollowers(currentUser))
-//         .then(user => res.redirect(`/user/${user.id}`));
-//     })
-//     .catch(err => console.log(err));
+//Need to remove from array
+  User
+    .findById(req.session.userId)
+    .then(userLoggedIn => {
+      userLoggedIn.following = userLoggedIn.following.filter(userFollowing =>
+        userFollowing.toString() !== req.body.userToUnfollow.toString());
+      return userLoggedIn.save();
+    })
+    .then((userLoggedIn) => {
+      return User
+        .findById(req.body.userToUnfollow)
+        .then(user => {
+          user.removeFromFollowers(userLoggedIn);
+          res.redirect(req.headers['referer']); //back to previous page
+        });
+    })
+    .catch(err => console.log(err));
 }
+
 
 module.exports = {
   create: followingCreate,

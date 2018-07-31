@@ -1,11 +1,16 @@
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+
+
 <form action="/images" method="POST">
 
-  <div class="field">
-      <label class="label" for="imageURL">Image URL</label>
-    <div class="control">
-      <input class="input" type="text" name="imageURL">
-    </div>
+<div class="field">
+<a class="button" id="pickImage"> Pick a file</a>
+    <label class="label" for="imageURL">Image URL</label>
+  <div class="control">
+    <input id="imageURL" class="input" type="text" name="imageURL">
   </div>
+</div>
+
 
   <div class="field">
       <label class="label" for="tags">Tags</label>
@@ -25,3 +30,17 @@ onclick="nextTag()" in input%>
   <button class="button is-primary">Contribute</button>
 
 </form>
+
+<script>
+const client = filestack.init('AexgdNExkS7KW6EtgRtLPz');
+const btn = document.getElementById('pickImage')
+
+
+btn.addEventListener('click', function () {
+  client.pick({})
+  .then(function(data) {
+    document.getElementById('imageURL').value = data.filesUploaded[0].url;
+  })
+});
+
+</script>

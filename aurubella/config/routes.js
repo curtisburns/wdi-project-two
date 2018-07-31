@@ -11,6 +11,7 @@ const sessionController = require('../controllers/sessionController');
 const commentController = require('../controllers/commentController');
 const userController = require('../controllers/userController');
 const followingController = require('../controllers/followingController');
+const followerController = require('../controllers/followerController');
 
 
 function secureRoute(req, res, next) {
@@ -76,6 +77,9 @@ router.route('/session/delete')
 
 router.route('/user/:id')
   .get(secureRoute, userController.show);
+
+router.route('/user/:id/followers')
+  .get(secureRoute, followerController.index)
 
 router.route('/user/:id/following')
   .get(secureRoute, followingController.index)

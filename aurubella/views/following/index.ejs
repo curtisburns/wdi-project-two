@@ -1,5 +1,26 @@
 <% user.following.forEach(userFollowing => { %>
-  <div class="">
-    <span> <%= userFollowing.username %></span>
+  <div class="columns">
+  <div class="column is-6">
+    <figure class="image is-64x64" >
+      <img src="<%= userFollowing.profilePicture %>" alt="">
+    </figure>
+  </div>
+  <div class="column is-3">
+    <h2><%= userFollowing.username %></h2>
+    <h2> <%= userFollowing.followers.length %>
+      <% if (userFollowing.followers.length === 1) { %>
+        FOLLOWER
+        <% }  else { %>
+      FOLLOWERS
+  <%  } %>
+</h2>
+  </div>
+  <div class="column is-3">
+    <%= userFollowing.id %>
+    <%= locals.user.id %>
+
+    <% const _user = userFollowing %>
+      <%- include('../following/new', { _user }) %>
+  </div>
   </div>
 <% }) %>

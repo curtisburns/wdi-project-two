@@ -9,6 +9,7 @@ const router = require('./config/routes');
 const session = require('express-session');
 const flash = require('express-flash');
 const User = require('./models/user');
+
 const {PORT, DB_URI} = require('./config/environment');
 
 // set up mongoose

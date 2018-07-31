@@ -7,7 +7,7 @@
             <h2 class="is-subtitle"> <%= image.uploadedBy.username %> </h2>
           </a>
           <a href="/images/<%= image.id %>" >
-            <img src="/images/<%= image.imageURL %>" alt="<%= image.caption %>">
+            <img src="<%= image.imageURL %>" alt="<%= image.caption %>">
           </a>
           <h3 class="is-subtitle is-4"> <%= image.caption %> </h3>
           <% image.tags.forEach(tag => { %>
