@@ -10,6 +10,7 @@ const registrationController = require('../controllers/registrationController');
 const sessionController = require('../controllers/sessionController');
 const commentController = require('../controllers/commentController');
 const userController = require('../controllers/userController');
+const followingController = require('../controllers/followingController');
 
 
 function secureRoute(req, res, next) {
@@ -76,10 +77,17 @@ router.route('/session/delete')
 router.route('/user/:userId')
   .get(secureRoute, userController.show);
 
+router.route('/user/:userId/following')
+  .post(secureRoute, followingController.create);
+
+router.route('/user/:userId/following/:followingId')
+  .delete(secureRoute, followingController.delete);
+
 router.route('/images/:imageId/comments')
-  .post(commentController.create);
+  .post(secureRoute, commentController.create);
 
 router.route('/images/:imageId/comments/:commentId')
-  .delete(commentController.delete);
+  .delete(secureRoute, commentController.delete);
+
 
 module.exports = router;

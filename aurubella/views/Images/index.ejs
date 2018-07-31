@@ -3,7 +3,9 @@
     <div class="columns is-multiline is-mobile">
       <% images.forEach(image => { %>
         <div class="column is-4-desktop column is-4-tablet is-full-mobile">
-          <h2 class="is-subtitle"> <%= image.uploadedBy.username %> </h2>
+          <a href="/user/<%= image.uploadedBy.id %> ">
+            <h2 class="is-subtitle"> <%= image.uploadedBy.username %> </h2>
+          </a>
           <a href="/images/<%= image.id %>" >
             <img src="/images/<%= image.imageURL %>" alt="<%= image.caption %>">
           </a>

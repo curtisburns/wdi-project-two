@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema({
   password: {type: String, required: true},
   followers: [{type: String}],
   following: [{type: String}],
-  imagesPosted: [{type: String}]
+  imagesPosted: [{type: String}],
+  status: String
 });
 
 // NOTE: You can use this later as:
@@ -34,14 +35,16 @@ userSchema.methods.validatePassword = function(password) {
 
 // sets up a virtual key to store password to check
 userSchema.virtual('confirmPassword') //defines property that doesn't get
-// persisted to mongodb
+// // persisted to mongodb
   .set(function(confirmPassword) {
     this.passwordCheck = confirmPassword; //sets another property (why?)
   });
 // invalidates if passwords for confirmation on register don't match
 userSchema.pre('validate', function(next) {
   console.log(this.passwordCheck === this.password, this.passwordCheck, this.password);
-  if (this.passwordCheck !== this.password) {
+  if (this.passwordCheck !== this.password && this.status === 'passwordConfirmRequired') {
+    //checks if passwordConfirm is actually required
+    // this should only be done on register or password change.
     this.invalidate('confirmPassword', 'does not match!');
   }
   next();
@@ -50,8 +53,15 @@ userSchema.pre('validate', function(next) {
 
 // encrypts password
 userSchema.pre('save', function() {
-  this.password = bcrypt.hashSync(this.password, 8);
+  console.log(this);
+  if (this.status !== null) { //checks if encryption is actually required
+    // this should only be done on register or password change.
+    this.password = bcrypt.hashSync(this.password, 8);
+    this.status = null;
+    console.log(this);
+  }
 });
+
 
 
 

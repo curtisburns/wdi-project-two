@@ -15,7 +15,21 @@ function usersShow(req, res) {
     });
 
 }
+function usersEdit(req, res) {
+
+}
+
+function usersUpdate(req, res) {
+
+}
+
+function usersDelete(req, res) {
+
+}
 
 module.exports = {
-  show: usersShow
+  show: usersShow,
+  edit: usersEdit,
+  update: usersUpdate,
+  delete: usersDelete // Option to edit username
 };

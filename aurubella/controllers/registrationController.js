@@ -7,6 +7,7 @@ function registrationsNew(req, res) {
 function registrationsCreate(req, res) {
   req.body.followers = []; //Sets up followers array on register
   req.body.following = []; //Set up following array on register
+  req.body.status = 'passwordConfirmRequired';
   User
     .create(req.body)
     .then((user) => {

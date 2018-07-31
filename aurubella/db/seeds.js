@@ -17,7 +17,8 @@ const users = [{
   confirmPassword: 'pass',
   followers: ['string', 'string'],
   following: ['string', 'string'],
-  imagesPosted: ['string', 'string']
+  imagesPosted: ['string', 'string'],
+  status: null
 }, {
   profilePicture: 'imageplaceholder.png',
   username: 'bob1234',
@@ -26,7 +27,8 @@ const users = [{
   confirmPassword: 'pass',
   followers: ['string', 'string'],
   following: ['string', 'string'],
-  imagesPosted: ['string', 'string']
+  imagesPosted: ['string', 'string'],
+  status: null
 }, {
   profilePicture: 'imageplaceholder.png',
   username: 'andy1234',
@@ -35,7 +37,8 @@ const users = [{
   confirmPassword: 'pass',
   followers: ['string', 'string'],
   following: ['string', 'string'],
-  imagesPosted: ['string', 'string']
+  imagesPosted: ['string', 'string'],
+  status: null
 }];
 
 

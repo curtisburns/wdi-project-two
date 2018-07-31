@@ -1,0 +1,8 @@
+<% locals.user.following.forEach(userFollowing => {
+  if (userFollowing = _user.id) { %>
+    <form action="/user/<%= locals.user.id %>/following/<%= userFollowing.id %>" method="POST">
+      <button class="button is-info">following</button>
+      <input type="hidden" name="_method" value="DELETE">
+    </form>
+  <% } %>
+<% }) %>

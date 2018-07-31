@@ -6,7 +6,6 @@ function imagesIndex(req, res) {
     .find()
     .populate('uploadedBy')
     .then(images => {
-      console.log(images);
       res.render('images/index', { images });
     });
 }
@@ -14,6 +13,7 @@ function imagesIndex(req, res) {
 function imagesShow(req, res) {
   Image
     .findById(req.params.imageId)
+    .populate('uploadedBy')
     .then(image => res.render('images/show', { image }));
 }
 

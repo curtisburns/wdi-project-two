@@ -8,7 +8,7 @@
       </div>
       <div class="column is-one-half-desktop is-one-half-tablet is-full-mobile">
         <h1><%= _user.username %></h1>
-
+        <%- include('../following/new', { _user }) %>
           <h2><%=images.length%> posts</h2>
 
         <a href="/user/<%=_user.id%>/followers">

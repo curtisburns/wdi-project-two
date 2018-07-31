@@ -1,0 +1,7 @@
+<%  if (!locals.user.following.includes(_user.id)) { %>
+    <form action="/user/<%= _user.id %>/following" method="POST">
+      <button class="button">follow</button>
+    </form>
+  <% } else { %>
+    <%-include('../following/delete', _user) %>
+<% } %>
