@@ -3,43 +3,49 @@ const User = require('../models/user');
 function followingCreate(req, res) {
   //I might just keep track of following, then followers can be checked against
   //every user that has their name in their following.
-  const userBeingViewed = req.params.userId.toString();
-  console.log(req.params.userId);
+
+  // console.log(req.params.userId);
   User
-    .findById(req.session.userId)
-    .then(user => {
-      user.following.push(userBeingViewed);
-      console.log(userBeingViewed);
-      return user.save(); //can I update the followers as well?
+    .findById(req.params.id)
+    .then(loggedInUser => {
+      console.log('loggedInUser before update ->', loggedInUser);
+      loggedInUser.following.push(req.body.userToFollow);
+      console.log('loggedInUser after update ->', loggedInUser);
+      return loggedInUser.save(); //can I update the followers as well?
     })
-    .then(user => {
-      const lastFollowedIndex = user.following.length-1;
-      //req.params.userId is changing to currentUser here. Why. Changed to target
-      //last index in array
-      console.log(userBeingViewed);
-      res.redirect(`/user/${user.following[lastFollowedIndex]}`);
-      console.log(user.following.includes(userBeingViewed));
+    .then(() => {
+      console.log('this is the req header' + req.headers['referer']);
+      res.redirect(req.headers['referer']);
     })
     .catch(err => console.log(err));
 }
 
 function followingIndex(req, res) {
-//Needs to be a page showing all followers
+  User
+    .findById(req.params.id)
+    .populate('following')
+    .then(user => res.render('following/index', { user }  ))
+    .catch(err => console.log(err));
 }
 
-function followingDelete(req, res, next) {
-//Need to remove from array
-  let userToUnfollow;
-  User
-    .findById(req.params.userId)
-    .then(user => {
-      user.following = user.following.filter(userFollowing =>
-        userFollowing.id !== req.params.followingId);
-      console.log(req.params.followingId + 'and' + user.following);
-      return user.save();
-    })
-    .then(userFollowing => res.redirect(`/user/${userFollowing}/following`))
-    .catch(next);
+function followingDelete(req, res) {
+// //Need to remove from array
+//   const userBeingViewed = req.params.userId;
+//   User
+//     .findById(req.session.userId)
+//     .then(user => {
+//       user.following = user.following.filter(userFollowing =>
+//         userFollowing.id !== req.params.followingId);
+//       return user.save();
+//     })
+//     .then(user => {
+//       const currentUser = user.id;
+//       User
+//         .findById(userBeingViewed)
+//         .then(user => user.removeFromFollowers(currentUser))
+//         .then(user => res.redirect(`/user/${user.id}`));
+//     })
+//     .catch(err => console.log(err));
 }
 
 module.exports = {

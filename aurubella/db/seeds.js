@@ -9,14 +9,19 @@ mongoose.connect(DB_URI);
 
 const Image = require('../models/image');
 const User = require('../models/user');
+
+Image.collection.drop();
+User.collection.drop();
+
+
 const users = [{
   profilePicture: 'imageplaceholder.png',
   username: 'curtis1234',
   email: 'email@email.com',
   password: 'pass',
   confirmPassword: 'pass',
-  followers: ['string', 'string'],
-  following: ['string', 'string'],
+  followers: [],
+  following: [],
   imagesPosted: ['string', 'string'],
   status: null
 }, {
@@ -25,8 +30,8 @@ const users = [{
   email: 'email1@email.com',
   password: 'pass',
   confirmPassword: 'pass',
-  followers: ['string', 'string'],
-  following: ['string', 'string'],
+  followers: [],
+  following: [],
   imagesPosted: ['string', 'string'],
   status: null
 }, {
@@ -35,15 +40,13 @@ const users = [{
   email: 'email2@email.com',
   password: 'pass',
   confirmPassword: 'pass',
-  followers: ['string', 'string'],
-  following: ['string', 'string'],
+  followers: [],
+  following: [],
   imagesPosted: ['string', 'string'],
   status: null
 }];
 
 
-Image.collection.drop();
-User.collection.drop();
 
 User
   .create(users)

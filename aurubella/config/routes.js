@@ -74,10 +74,11 @@ router.route('/session')
 router.route('/session/delete')
   .get(secureRoute, sessionController.delete);
 
-router.route('/user/:userId')
+router.route('/user/:id')
   .get(secureRoute, userController.show);
 
-router.route('/user/:userId/following')
+router.route('/user/:id/following')
+  .get(secureRoute, followingController.index)
   .post(secureRoute, followingController.create);
 
 router.route('/user/:userId/following/:followingId')

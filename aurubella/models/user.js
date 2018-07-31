@@ -11,8 +11,8 @@ const userSchema = new mongoose.Schema({
   username: {type: String, required: true},
   email: {type: String, required: true},
   password: {type: String, required: true},
-  followers: [{type: String}],
-  following: [{type: String}],
+  followers: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
+  following: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
   imagesPosted: [{type: String}],
   status: String
 });
@@ -62,7 +62,16 @@ userSchema.pre('save', function() {
   }
 });
 
+userSchema.methods.addToFollowers = function addToFollowers(user) {
+  this.followers.push(user);
+  console.log('this is this in the addToFollowers ->', this);
+  return this.save();
+};
 
+userSchema.methods.removeFromFollowers = function removeFromFollowers(user) {
+  this.followers.filter(user => user !== this.followers.id);
+  return this.save();
+};
 
 
 module.exports = mongoose.model('User', userSchema);

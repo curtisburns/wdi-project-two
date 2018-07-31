@@ -1,7 +1,10 @@
-<%  if (!locals.user.following.includes(_user.id)) { %>
-    <form action="/user/<%= _user.id %>/following" method="POST">
-      <button class="button">follow</button>
-    </form>
-  <% } else { %>
-    <%-include('../following/delete', _user) %>
+<% if (locals.user.id.toString() !== _user.id.toString()) { %>
+  <%  if (!locals.user.following.map(id => id.toString()).includes(_user.id.toString())) { %>
+      <form action="/user/<%= locals.user.id %>/following" method="POST">
+        <input type="hidden" name="userToFollow" value="<%= _user.id %>">
+        <button class="button">follow</button>
+      </form>
+    <% } else { %>
+      <%-include('../following/delete', _user) %>
+  <% } %>
 <% } %>

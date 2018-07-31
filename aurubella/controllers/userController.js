@@ -4,7 +4,7 @@ const Image = require('../models/image');
 function usersShow(req, res) {
   let _user;
   User
-    .findById(req.params.userId)
+    .findById(req.params.id)
     .then(user => {
       _user = user;
       return Image
