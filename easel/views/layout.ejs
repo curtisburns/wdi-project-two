@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Easel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  </head>
+  <body>
+    <% for (const type in messages) { %>
+      <div class="message is-<%= type %>">
+        <div class="message-body">
+          <%= messages[type] %>
+        </div>
+      </div>
+    <% } %>
+
+    <%- include ./partials/header %>
+    <%- body %>
+    <%- include ./partials/footer %>
+  </body>
+</html>

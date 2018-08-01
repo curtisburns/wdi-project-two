@@ -1,0 +1,37 @@
+<% if (!locals.isLoggedIn) { %>
+
+
+<%} else { %>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+<div class="container">
+  <div class="navbar-start">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/images/new">Add image</a>
+      <a class="navbar-item" href="/images">Easel</a>
+      <div class="navbar-item">
+        <form  action="/search/index" method="POST">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" name="searchTerm">
+            </div>
+            <div class="control">
+              <button class="button is-info">
+                search image
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-end">
+    <div class="navbar-menu">
+      <a class="navbar-item" href="/explore">Explore</a>
+      <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>"><%= locals.loggedInUser.username %></a>
+      <a class="navbar-item" href="/session/delete">Log out</a>
+      <% } %>
+    </div>
+  </div>
+
+</div>
+</nav>

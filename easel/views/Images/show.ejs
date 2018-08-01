@@ -1,0 +1,25 @@
+<section class="section">
+
+  <a href="/user/<%= image.uploadedBy.id %> ">
+    <h1><%= image.uploadedBy.username %></h1>
+  </a>
+  <img src="<%= image.imageURL %>" alt="<%= image.caption %>">
+
+  <h2><%= image.dateOrTimeUploaded %></h1>
+  <h2><%= image.caption %></h2>
+  <% image.tags.forEach(tag => { %>
+    <a href='#'> <%= tag %> </a>
+  <% }) %>
+
+  <h2><%= image.likes %></h2>
+
+  <a class="button" href="/images/<%= image.id %>/edit">Edit</a>
+
+  <%#need to make it so that you can only edit and delete your own photos %>
+  <form class="field" action="/images/<%= image.id %>" method="POST">
+    <button>Delete</button>
+    <input type="hidden" name="_method" value="DELETE">
+  </form>
+  </section>
+
+<%- include('../comments/index', { image }) %>

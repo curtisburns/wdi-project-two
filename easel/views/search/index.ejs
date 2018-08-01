@@ -1,0 +1,26 @@
+Search results
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-mobile">
+      <% results.forEach(image => { %>
+        <div class="column is-4-desktop column is-4-tablet is-full-mobile">
+          <a href="/user/<%= image.uploadedBy.id %> ">
+            <h2 class="is-subtitle"> <%= image.uploadedBy.username %> </h2>
+          </a>
+          <a href="/images/<%= image.id %>" >
+            <img src="<%= image.imageURL %>" alt="<%= image.caption %>">
+          </a>
+          <h3 class="is-subtitle is-4"> <%= image.caption %> </h3>
+          <% image.tags.forEach(tag => { %>
+            <form action="/search/index" method="POST">
+              <input type="hidden" name="searchTerm" value="<%= tag %>">
+              <button type="tag" name="button"><%= tag %></button>
+            </form>
+          <% }) %>
+        </div>
+        <% }) %>
+      </div>
+
+  </div>
+
+</section>
