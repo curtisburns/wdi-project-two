@@ -3,7 +3,7 @@ const Image = require('../models/image');
 
 function imagesIndex(req, res) {
   Image
-    .find()
+    .find().sort({dateUploaded: -1})
     .populate('uploadedBy')
     .then(images => {
       res.render('images/index', { images });
@@ -20,18 +20,14 @@ function imagesShow(req, res) {
 function imagesNew(req, res) {
   res.render('images/new');
 }
-//.populate(comments.createby)
-//need to fix
+
 function imagesCreate(req, res) {
   req.body.uploadedBy = req.session.userId;
-  req.body.tags = req.body.tags.split('#').map(tag =>
-    tag = '#' + tag.trim()
-  );
+  req.body.dateUploaded = new Date().toLocaleString('en-gb', {
+    month: 'short', day: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  req.body.tags = req.body.tags.split(' ');
   Image
     .create(req.body)
-    // .then((image) => {
-    //   req.session.userId.imagesPosted.push(image.id);
-    // })
     .then(() => {
       res.redirect('/images');
     })

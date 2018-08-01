@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   followers: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
   following: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
   imagesPosted: [{type: String}],
+  imagesLiked: [{type: mongoose.Schema.ObjectId, ref: 'Image'}],
   status: String
 });
 
@@ -63,6 +64,16 @@ userSchema.methods.addToFollowers = function(loggedInUser) {
 
 userSchema.methods.removeFromFollowers = function(loggedInUser) {
   this.followers = this.followers.filter(user => user.toString() !== loggedInUser.id.toString());
+  return this.save();
+};
+
+userSchema.methods.addToLikes = function(imageBeingLiked) {
+  this.imagesLiked.push(imageBeingLiked);
+  return this.save();
+};
+
+userSchema.methods.removeFromLikes = function(imageBeingUnliked) {
+  this.imagesLiked = this.imagesLiked.filter(image => image.toString() !== imageBeingUnliked.id.toString());
   return this.save();
 };
 

@@ -7,7 +7,7 @@
   <div class="navbar-start">
     <div class="navbar-brand">
       <a class="navbar-item" href="/images/new">Add image</a>
-      <a class="navbar-item" href="/images">Easel</a>
+      <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>/exhibition">Easel</a>
       <div class="navbar-item">
         <form  action="/search/index" method="POST">
           <div class="field has-addons">
@@ -26,7 +26,7 @@
   </div>
   <div class="navbar-end">
     <div class="navbar-menu">
-      <a class="navbar-item" href="/explore">Explore</a>
+      <a class="navbar-item" href="/images">Explore</a>
       <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>"><%= locals.loggedInUser.username %></a>
       <a class="navbar-item" href="/session/delete">Log out</a>
       <% } %>

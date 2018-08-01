@@ -1,0 +1,7 @@
+<%  if (!locals.loggedInUser.imagesLiked.map(id => id.toString()).includes(image.id.toString())) { %>
+    <form action="/images/<%= image.id %>/likes" method="POST">
+      <button class="button">Like</button>
+    </form>
+  <% } else { %>
+    <%-include('../likes/delete', { image }) %>
+<% } %>

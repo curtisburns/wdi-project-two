@@ -5,13 +5,10 @@
         <div class="column is-4-desktop column is-4-tablet is-full-mobile">
           <a href="/user/<%= image.uploadedBy.id %> ">
             <h2 class="is-subtitle"> <%= image.uploadedBy.username %> </h2>
-            <h2 class="is-subtitle"> <%= image.dateUploaded.slice(0,-12)%> </h2>
           </a>
           <a href="/images/<%= image.id %>" >
             <img src="<%= image.imageURL %>" alt="<%= image.caption %>">
           </a>
-          <a href="/images/<%= image.id %>/likes">like index </a>
-          <%- include('../likes/new', { image }) %>
           <h3 class="is-subtitle is-4"> <%= image.caption %> </h3>
           <% image.tags.forEach(tag => { %>
             <form action="/search/index" method="POST">

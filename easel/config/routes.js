@@ -13,6 +13,8 @@ const userController = require('../controllers/userController');
 const followingController = require('../controllers/followingController');
 const followerController = require('../controllers/followerController');
 const searchController = require('../controllers/searchController');
+const exhibitionController = require('../controllers/exhibitionController');
+const likeController = require('../controllers/likeController');
 
 
 function secureRoute(req, res, next) {
@@ -77,7 +79,8 @@ router.route('/session/delete')
   .get(secureRoute, sessionController.delete);
 
 router.route('/user/:id')
-  .get(secureRoute, userController.show);
+  .get(secureRoute, userController.show)
+  .put(secureRoute, userController.update);
 
 router.route('/user/:id/followers')
   .get(secureRoute, followerController.index);
@@ -85,6 +88,14 @@ router.route('/user/:id/followers')
 router.route('/user/:id/following')
   .get(secureRoute, followingController.index)
   .post(secureRoute, followingController.create);
+
+router.route('/user/:id/edit')
+  .get(secureRoute, userController.edit);
+
+
+router.route('/user/:id/exhibition')
+  .get(secureRoute, exhibitionController.index);
+
 
 router.route('/user/:userId/following/:followingId')
   .delete(secureRoute, followingController.delete);
@@ -95,8 +106,16 @@ router.route('/images/:imageId/comments')
 router.route('/images/:imageId/comments/:commentId')
   .delete(secureRoute, commentController.delete);
 
+router.route('/images/:imageId/likes')
+  .get(secureRoute, likeController.index)
+  .post(secureRoute, likeController.create);
+
+router.route('/images/:imageId/likes/:likeId')
+  .delete(secureRoute, likeController.delete);
+
 router.route('/search/index')
   .post(secureRoute, searchController.index);
+
 
 
 module.exports = router;

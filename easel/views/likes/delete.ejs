@@ -1,0 +1,4 @@
+  <form action="/images/<%= image.id %>/likes/<%= locals.loggedInUser.id%>" method="POST">
+    <button class="button is-info">Unlike</button>
+    <input type="hidden" name="_method" value="DELETE">
+  </form>

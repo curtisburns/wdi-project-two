@@ -1,0 +1,23 @@
+<% image.likes.forEach(like => { %>
+  <div class="columns">
+  <div class="column is-6">
+    <figure class="image is-64x64" >
+      <img src="<%= like.profilePicture %>" alt="">
+    </figure>
+  </div>
+  <div class="column is-3">
+    <a href="/user/<%= like.id %>"<h2><%= like.username %></h2></a>
+    <h2> <%= like.followers.length %>
+      <% if (like.followers.length === 1) { %>
+        FOLLOWER
+        <% }  else { %>
+      FOLLOWERS
+  <%  } %>
+</h2>
+  </div>
+  <div class="column is-3">
+    <% const _user = like%>
+      <%- include('../following/new', { _user }) %>
+  </div>
+  </div>
+<% }) %>

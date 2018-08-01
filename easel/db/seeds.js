@@ -56,7 +56,7 @@ User
         {
           uploadedBy: users[0].id,
           imageURL: 'imageplaceholder.png',
-          dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
+          dateUploaded: 'Aug 01, 18, 12:37PM', //will change this eventually e.g '2 minutes ago' needs to be current date
           tags: [
             'baroque', 'power', 'gold'
           ],
@@ -67,7 +67,7 @@ User
         },{
           uploadedBy: users[1].id,
           imageURL: 'imageplaceholder.png',
-          dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
+          dateUploaded: 'Aug 01, 18, 12:37PM', //will change this eventually e.g '2 minutes ago' needs to be current date
           tags: [
             'renaissance'
           ],
@@ -78,7 +78,7 @@ User
         },{
           uploadedBy: users[2].id,
           imageURL: 'imageplaceholder.png',
-          dateOrTimeUploaded: 'tbc', //will change this eventually e.g '2 minutes ago' needs to be current date
+          dateUploaded: 'Aug 01, 18, 12:37PM', //will change this eventually e.g '2 minutes ago' needs to be current date
           tags: [
             'neoclassical', 'impactful'
           ],
