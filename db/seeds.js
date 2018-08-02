@@ -23,7 +23,7 @@ const users = [{
   followers: [],
   following: [],
   imagesPosted: ['string', 'string'],
-  status: null
+  status: 'processPassword'
 }, {
   profilePicture: 'https://imgur.com/dudZjsL.jpg',
   username: 'meagain',
@@ -33,7 +33,7 @@ const users = [{
   followers: [],
   following: [],
   imagesPosted: ['string', 'string'],
-  status: null
+  status: 'processPassword'
 }, {
   profilePicture: 'https://imgur.com/dudZjsL.jpg',
   username: 'alsome',
@@ -43,7 +43,7 @@ const users = [{
   followers: [],
   following: [],
   imagesPosted: ['string', 'string'],
-  status: null
+  status: 'processPassword'
 }];
 
 
@@ -51,6 +51,7 @@ const users = [{
 User
   .create(users)
   .then(users => {
+    console.log(`Created ${users.length} users.`);
     return Image
       .create([
         {
