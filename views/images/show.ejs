@@ -1,0 +1,74 @@
+<section class="section">
+<div class="container">
+
+  <div class="columns is-centered is-12">
+    <div class="show-sizing">
+      <div class="column is-12">
+        <%# <div class="username-and-image"> %>
+
+        <div class="username">
+          <h2 class="subtitle is-5 username">
+            <a class="standard-text-style" href="/user/<%= image.uploadedBy.id %> ">
+              <%= image.uploadedBy.username %>
+            </a>
+          </h2>
+        </div>
+
+        <img class="show-image" src="<%= image.imageURL %>" alt="<%= image.caption %>">
+      <%# </div> %>
+
+    </div>
+    <div class="column">
+      <div class="columns is-vcentered">
+        <div class="column">
+          <h2 class="date-posted subtitle standard-text-style is-7"> Posted: <%= image.dateUploaded.slice(0,-13)%> </h2>
+        </div>
+        <div class="column">
+          <%- include('../likes/new', { image }) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-gapless">
+      <div class="column">
+        <h3 class="standard-text-style caption"> <%= image.caption %> </h3>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <form action="/search/index" method="POST">
+          <% image.tags.forEach(tag => { %>
+
+            <input type="hidden" name="searchTerm" value="<%= tag %>">
+            <button class="button is-light tag-button standard-text-style" type="submit" name="button"><%= tag %></button>
+            <% }) %>
+          </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+</section>
+
+
+
+
+
+
+  <div class="container comments">
+    <% if (image.uploadedBy.username === locals.loggedInUser.username) { %>
+      <a class="button" href="/images/<%= image.id %>/edit">Edit</a>
+
+      <form class="field" action="/images/<%= image.id %>" method="POST">
+      <button>Delete</button>
+      <input type="hidden" name="_method" value="DELETE">
+      </form>
+      <% }%>
+
+
+      <%- include('../comments/index', { image }) %>
+
+  </div>
