@@ -13,7 +13,7 @@
           </a>
           <div class="columns is-vcentered is-gapless">
           <div class="column is-8">
-            <h2 class="is-subtitle"> Posted: <%= image.dateUploaded.slice(0,-12)%> </h2>
+            <h2 class="subtitle date-posted standard-text-style"> Posted: <%= image.dateUploaded.slice(0,-12)%> </h2>
           </div>
           <div class="column is-4">
             <%- include('../likes/new', { image }) %>
