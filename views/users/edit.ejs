@@ -4,9 +4,9 @@
 <form action="/user/<%= user.id %>" method="POST">
   <div class="field">
     <a class="button" id="pickImage"> Pick an image</a>
-    <label class="label" id="profilePicture" for="profilePicture" >Profile Picture (URL)</label>
+    <label class="label" for="profilePicture" >Profile Picture (URL)</label>
     <div class="control">
-      <input class="input" type="text" name="profilePicture" value="<%= user.profilePicture %>">
+      <input class="input" type="text" name="profilePicture" id="profilePicture"  value="<%= user.profilePicture %>">
     </div>
   </div>
   <div class="field">

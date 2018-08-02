@@ -1,11 +1,15 @@
-<form action="/images/<%= image.id %>" method="POST">
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
 
-  <div class="field">
-      <label class="label" for="imageURL">Image URL</label>
-    <div class="control">
-      <input class="input" type="text" name="imageURL" value="<%= image.imageURL %>">
-    </div>
+
+<form action="/images" method="POST">
+
+<div class="field">
+<a class="button" id="pickImage"> Pick a file</a>
+    <label class="label" for="imageURL">Image URL</label>
+  <div class="control">
+    <input id="imageURL" class="input" type="text" name="imageURL">
   </div>
+</div>
 
 
 <%# need to figure out how to push each tag input into an array and update. %>
@@ -29,3 +33,17 @@
   <input type="hidden" name="_method" value="PUT">
 
 </form>
+
+<script>
+const client = filestack.init('AexgdNExkS7KW6EtgRtLPz');
+const btn = document.getElementById('pickImage')
+
+
+btn.addEventListener('click', function () {
+  client.pick({})
+  .then(function(data) {
+    document.getElementById('imageURL').value = data.filesUploaded[0].url;
+  })
+});
+
+</script>
