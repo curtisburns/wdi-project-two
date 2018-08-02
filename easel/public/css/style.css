@@ -3,6 +3,9 @@
   height: 300px;
   border-radius: 50%;
 }
+
+/* navbar */
+
 .search-bar-button {
    background-color: lightgrey;
    color: white;
@@ -37,14 +40,124 @@ div.mobile, nav.mobile {
   display: none;
 }
 
-
-
-
 @media only screen and (max-width: 1024px) {
 
     div.mobile, nav.mobile {
        display: block;
      }
 
-
   }
+
+  /* footer */
+
+.footer-links {
+  color: grey;
+  letter-spacing: 0.4em;
+  font-size: 0.8em;
+}
+
+a.footer-links {
+  border-right: 1px solid grey;
+}
+
+footer {
+  margin-top: 40px;
+  background-color: azure;
+}
+
+/* layout */
+
+.wrapper {
+  margin-top: 40px;
+}
+
+/* Home */
+
+.standard-text-style {
+  color: grey;
+  letter-spacing: 0.4em;
+}
+
+.new-user, .existing-user {
+  text-align: left;
+  margin: 30px;
+  color: grey;
+}
+
+.like-form {
+  text-align: right;
+}
+
+/* Register */
+
+/* Index */
+
+.caption {
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+
+h2.username-on-index {
+  font-size: 1em;
+  letter-spacing: 0.20em;
+  font-weight: bold;
+}
+
+/* user show */
+
+.profile-info {
+  letter-spacing: 0.4em;
+  font-size:0.8em;
+}
+
+.username-on-show {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.info-border {
+  border-left: 1px solid lightgrey;
+  text-align: left;
+  padding-left: 90px;
+}
+
+/* Search index */
+
+.searchTitle {
+  letter-spacing: 0.3em
+}
+
+/* likes link */
+
+.likes-text {
+  letter-spacing: 0.2em;
+  font-size: 0.8em
+}
+
+/* tags */
+
+.tag-button {
+  font-size: 0.8em;
+  padding: 4px;
+  letter-spacing: 0.2em;
+  height: 30px;
+}
+
+/* image show */
+.show-sizing {
+  max-width: 100vw;
+  height: 70vh;
+}
+
+.show-image {
+  max-width: 100vw;
+  max-height: 70vh;
+}
+
+.date-posted {
+  letter-spacing: 0.2em;
+}
+
+.comments {
+  margin-top: 30px;
+}

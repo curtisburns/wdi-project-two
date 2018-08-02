@@ -1,3 +1,6 @@
+<section class="section">
+  <div class="container">
+
 <% user.followers.forEach(userFollower => { %>
   <div class="columns">
   <div class="column is-6">
@@ -6,8 +9,8 @@
     </figure>
   </div>
   <div class="column is-3">
-    <a href="/user/<%= userFollower.id %>"<h2><%= userFollower.username %></h2></a>
-    <h2> <%= userFollower.followers.length %>
+    <a class="standard-text-style" href="/user/<%= userFollower.id %>"<h2><b><%= userFollower.username %></b></h2></a>
+    <h2 class="standard-text-style" > <b><%= userFollower.followers.length %> </b>
       <% if (userFollower.followers.length === 1) { %>
         FOLLOWER
         <% }  else { %>
@@ -21,3 +24,5 @@
   </div>
   </div>
 <% }) %>
+</div>
+</div>

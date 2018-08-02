@@ -1,4 +1,11 @@
-  <form action="/images/<%= image.id %>/likes/<%= locals.loggedInUser.id%>" method="POST">
-    <button class="button is-info">Unlike</button>
+  <form class="like-form" action="/images/<%= image.id %>/likes/<%= locals.loggedInUser.id%>" method="POST">
+    <div class="columns is-vcentered is-gapless">
+      <div class="column">
+        <a class="likes-text standard-text-style" href="/images/<%= image.id %>/likes"><%= image.likes.length %> likes </a>
+      </div>
+      <div class="column">
+        <button class="button is-light"><i class="fas fa-heart"></i></button>
+      </div>
+    </div>
     <input type="hidden" name="_method" value="DELETE">
   </form>

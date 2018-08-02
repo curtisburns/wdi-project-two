@@ -2,32 +2,66 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline is-mobile">
-      <div class="column is-one-half-desktop is-one-half-tablet is-full-mobile">
+      <div class="column is-one-third-desktop is-one-half-tablet is-full-mobile">
         <img class="profile-pic" src="<%=_user.profilePicture%>" alt="Profile Picture">
 
       </div>
-      <div class="column is-one-half-desktop is-one-half-tablet is-full-mobile">
-        <h1><%= _user.username %></h1>
+      <div class="column is-two-thirds-desktop is-one-half-tablet is-full-mobile">
+        <div class="info-border">
+
+
+        <h1 class="username-on-show standard-text-style"><%= _user.username %></h1>
         <%- include('../following/new', { _user }) %>
-          <h2><%=images.length%> posts</h2>
+          <h2 class="profile-info standard-text-style"><b><%=images.length%></b>
+            <% if ( images.length === 1) { %>
+              post
+            <% } else { %>
+              posts
+              <% } %>
+              </h2>
 
         <a href="/user/<%=_user.id%>/followers">
-          <h2><%=_user.followers.length%> followers</h2>
+          <h2 class="profile-info standard-text-style"><b><%=_user.followers.length%></b> followers</h2>
         </a>
 
         <a href="/user/<%=_user.id%>/following">
-          <h2><%=_user.following.length%> following</h2>
+          <h2 class="profile-info standard-text-style"><b><%=_user.following.length%></b> following</h2>
         </a>
+        <% if (_user.id === locals.loggedInUser.id) { %>
         <a class="button" href="/user/<%=_user.id%>/edit">
            <h2>Edit</h2>
         </a>
+      <%}%>
+      </div>
       </div>
     </div>
     <div class="columns is-multiline is-mobile">
       <% images.forEach(image => { %>
         <div class="column is-4-desktop is-4-tablet is-full-mobile">
+
+
+        <a href="/images/<%= image.id %>" >
         <img src="<%= image.imageURL %>" alt="images/<%= image.caption %>">
+        </a>
+        <div class="columns is-vcentered is-gapless">
+        <div class="column is-8">
+          <h2 class="is-subtitle"> Posted: <%= image.dateUploaded.slice(0,-12)%> </h2>
         </div>
+        <div class="column is-4">
+          <%- include('../likes/new', { image }) %>
+        </div>
+      </div>
+      <h3 class="standard-text-style caption"> <%= image.caption %> </h3>
+        <form action="/search/index" method="POST">
+      <% image.tags.forEach(tag => { %>
+
+          <input type="hidden" name="searchTerm" value="<%= tag %>">
+          <button type="tag" name="button"><%= tag %></button>
+      <% }) %>
+    </form>
+
+        </div>
+
       <% }) %>
     </div>
   </div>

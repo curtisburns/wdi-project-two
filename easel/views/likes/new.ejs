@@ -1,6 +1,13 @@
 <%  if (!locals.loggedInUser.imagesLiked.map(id => id.toString()).includes(image.id.toString())) { %>
-    <form action="/images/<%= image.id %>/likes" method="POST">
-      <button class="button">Like</button>
+    <form class="like-form" action="/images/<%= image.id %>/likes" method="POST">
+      <div class="columns is-vcentered is-gapless">
+        <div class="column">
+          <a class="likes-text standard-text-style"href="/images/<%= image.id %>/likes"><%= image.likes.length %> likes </a>
+        </div>
+        <div class="column">
+          <button class="button is-light"><i class="far fa-heart"></i></button>
+        </div>
+      </div>
     </form>
   <% } else { %>
     <%-include('../likes/delete', { image }) %>

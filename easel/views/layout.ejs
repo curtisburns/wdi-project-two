@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
   </head>
   <body>
+
+
+
+    <%- include ./partials/header %>
     <% for (const type in messages) { %>
       <div class="message is-<%= type %>">
         <div class="message-body">
@@ -16,9 +20,9 @@
         </div>
       </div>
     <% } %>
-
-    <%- include ./partials/header %>
+    <div class="wrapper">
     <%- body %>
+  </div>
     <%- include ./partials/footer %>
   </body>
 </html>

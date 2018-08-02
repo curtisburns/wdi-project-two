@@ -2,7 +2,7 @@
   <%  if (!locals.loggedInUser.following.map(id => id.toString()).includes(_user.id.toString())) { %>
       <form action="/user/<%= locals.loggedInUser.id %>/following" method="POST">
         <input type="hidden" name="userToFollow" value="<%= _user.id %>">
-        <button class="button">follow</button>
+        <button class="button is-light">follow</button>
       </form>
     <% } else { %>
       <%-include('../following/delete', { _user }) %>

@@ -1,7 +1,7 @@
 <% locals.loggedInUser.following.forEach(userFollowing => {
   if (userFollowing.toString() === _user.id.toString()) { %>
     <form action="/user/<%= locals.loggedInUser.id %>/following/<%= _user.id%>" method="POST">
-      <button class="button is-info">following</button>
+      <button class="button is-dark">following</button>
       <input type="hidden" name="_method" value="DELETE">
 
       <input type="hidden" name="userToUnfollow" value="<%= _user.id %>">
