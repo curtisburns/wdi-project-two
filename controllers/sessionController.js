@@ -15,7 +15,7 @@ function sessionsCreate(req, res) {
         res.status(401).render('sessions/new');
       } else {
         req.session.userId = user.id;
-        res.redirect('/images');
+        res.redirect('/user/:id/exhibition');
       }
     });
 }
