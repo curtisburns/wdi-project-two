@@ -44,7 +44,13 @@ const btn = document.getElementById('pickImage')
 
 
 btn.addEventListener('click', function () {
-  client.pick({})
+  client.pick({
+    accept: 'image/jpeg',
+ transformations: {
+   crop: {
+     aspectRatio: 1,
+     force: true
+  })
   .then(function(data) {
     document.getElementById('profilePicture').value = data.filesUploaded[0].url;
   })

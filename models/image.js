@@ -11,7 +11,7 @@ const imageSchema = new mongoose.Schema({
   tags: [{type: String}],
   caption: String,
   likes: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
-  comments: [{username: String, content: String}],
+  comments: [{profilePicture: String, username: String, content: String}],
   bookmarkedBy: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
 });
 
