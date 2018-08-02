@@ -34,5 +34,5 @@ function usersUpdate(req, res) {
 module.exports = {
   show: usersShow,
   edit: usersEdit,
-  update: usersUpdate,
+  update: usersUpdate
 };

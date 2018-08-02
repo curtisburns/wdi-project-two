@@ -1,37 +1,129 @@
+
+
 <% if (!locals.isLoggedIn) { %>
 
 
 <%} else { %>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-<div class="container">
-  <div class="navbar-start">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+
+
+<div class="mobile">
+
+
+    <nav class="navbar mobile" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/images/new">Add image</a>
-      <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>/exhibition">Easel</a>
-      <div class="navbar-item">
+      <a  class="navbar-item" href="/user/<%= locals.loggedInUser.id %>/exhibition">
+        <img class="navbar-logo" src="/images/easel-logo2.png" alt="Easel">
+      </a>
+      <div class="navbar-item search-Bar">
         <form  action="/search/index" method="POST">
           <div class="field has-addons">
             <div class="control">
-              <input class="input" type="text" name="searchTerm">
+              <input class="input" type="text" name="searchTerm" placeholder="search tag">
             </div>
             <div class="control">
-              <button class="button is-info">
-                search image
+
+              <button class="button search-bar-button">
+                <img src="/images/search.png" alt="">
               </button>
+
             </div>
           </div>
         </form>
       </div>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"  data-target="navMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
+  </nav>
+  <div class="navbar-menu dropdown">
+  <div class="navbar-item">
+    <div><a class="navbar-item" href="/images/new">Add image</a></div>
   </div>
-  <div class="navbar-end">
-    <div class="navbar-menu">
-      <a class="navbar-item" href="/images">Explore</a>
-      <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>"><%= locals.loggedInUser.username %></a>
-      <a class="navbar-item" href="/session/delete">Log out</a>
-      <% } %>
-    </div>
+  <div class="navbar-item">
+    <div><a class="navbar-item" href="/images">Explore</a></div>
+  </div>
+  <div class="navbar-item">
+    <div>  <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>"><%= locals.loggedInUser.username %></a>
+</div>
+  </div>
+  <div class="navbar-item">
+    <div><a class="navbar-item" href="/session/delete">Log out</a></div>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="navbar-menu">
+
+
+<div class="navbar-start">
+
+  <a class="navbar-item" href="/images/new">Add image</a>
+
+  <a  class="navbar-item" href="/user/<%= locals.loggedInUser.id %>/exhibition">
+    <img class="navbar-logo" src="/images/easel-logo2.png" alt="Easel">
+  </a>
+</div>
+
+
+
+  <div class="navbar-item search-Bar">
+    <form  action="/search/index" method="POST">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" name="searchTerm" placeholder="search tag">
+        </div>
+        <div class="control">
+
+          <button class="button search-bar-button">
+            <img src="/images/search.png" alt="">
+          </button>
+
+        </div>
+      </div>
+    </form>
   </div>
 
+
+<div class="navbar-end">
+  <a class="navbar-item" href="/images">Explore</a>
+
+  <a class="navbar-item" href="/user/<%= locals.loggedInUser.id %>"><%= locals.loggedInUser.username %></a>
+
+  <a class="navbar-item" href="/session/delete">Log out</a>
+
+</div>
+
+
+</div>
 </div>
 </nav>
+<% } %>
+
+<script type="text/javascript">
+const burger = document.getElementsByClassName('navbar-burger')[0];
+const dropdown = document.getElementsByClassName('dropdown')[0];
+const options = document.getElementsByClassName('navbar-item');
+
+ToggleDropdown = function() {
+  burger.classList.toggle("is-active");
+  dropdown.classList.toggle("is-active")
+}
+
+burger.addEventListener('click', ToggleDropdown);
+for (let i=0; i < options.length; i++ ) {
+  options[i].addEventListener('click', ToggleDropdown)
+}
+
+
+
+
+</script>

@@ -3,3 +3,48 @@
   height: 300px;
   border-radius: 50%;
 }
+.search-bar-button {
+   background-color: lightgrey;
+   color: white;
+}
+
+.search-bar-button:hover {
+   background-color: grey;
+   color: white;
+ }
+
+ .search-Bar {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+ }
+
+.navbar {
+   background-color: azure;
+ }
+
+a.navbar-item:hover, div.navbar-item:hover  {
+  color: grey;
+}
+
+a.navbar-item, div.navbar-item {
+  color: grey;
+  letter-spacing: 0.4em;
+  font-size: 0.8em;
+}
+
+div.mobile, nav.mobile {
+  display: none;
+}
+
+
+
+
+@media only screen and (max-width: 1024px) {
+
+    div.mobile, nav.mobile {
+       display: block;
+     }
+
+
+  }

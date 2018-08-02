@@ -1,10 +1,6 @@
 const User = require('../models/user');
 
 function followingCreate(req, res) {
-  //I might just keep track of following, then followers can be checked against
-  //every user that has their name in their following.
-
-  // console.log(`this is the current user ${req.params.id}`);
   User
     .findById(req.params.id)
     .then(userLoggedIn => {
@@ -17,7 +13,7 @@ function followingCreate(req, res) {
         .then(user => {
           user.addToFollowers(userLoggedIn);
           res.redirect(req.headers['referer']);
-        }); //back to previous page
+        });
     })
     .catch(err => console.log(err));
 }
@@ -27,13 +23,12 @@ function followingIndex(req, res) {
     .findById(req.params.id)
     .populate('following')
     .then(user => {
-      res.render('following/index', { user }  )
+      res.render('following/index', { user });
     })
     .catch(err => console.log(err));
 }
 
 function followingDelete(req, res) {
-//Need to remove from array
   User
     .findById(req.session.userId)
     .then(userLoggedIn => {
