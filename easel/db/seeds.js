@@ -15,8 +15,8 @@ User.collection.drop();
 
 
 const users = [{
-  profilePicture: 'imageplaceholder.png',
-  username: 'curtis1234',
+  profilePicture: 'https://imgur.com/dudZjsL.jpg',
+  username: 'me',
   email: 'email@email.com',
   password: 'pass',
   confirmPassword: 'pass',
@@ -25,8 +25,8 @@ const users = [{
   imagesPosted: ['string', 'string'],
   status: null
 }, {
-  profilePicture: 'imageplaceholder.png',
-  username: 'bob1234',
+  profilePicture: 'https://imgur.com/dudZjsL.jpg',
+  username: 'meagain',
   email: 'email1@email.com',
   password: 'pass',
   confirmPassword: 'pass',
@@ -35,8 +35,8 @@ const users = [{
   imagesPosted: ['string', 'string'],
   status: null
 }, {
-  profilePicture: 'imageplaceholder.png',
-  username: 'andy1234',
+  profilePicture: 'https://imgur.com/dudZjsL.jpg',
+  username: 'alsome',
   email: 'email2@email.com',
   password: 'pass',
   confirmPassword: 'pass',

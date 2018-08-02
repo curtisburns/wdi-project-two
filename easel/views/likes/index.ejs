@@ -1,13 +1,15 @@
+<section class="section">
+  <div class="container">
 <% image.likes.forEach(like => { %>
   <div class="columns">
   <div class="column is-6">
     <figure class="image is-64x64" >
-      <img src="<%= like.profilePicture %>" alt="">
+      <img class="profile-pic" src="<%= like.profilePicture %>" alt="">
     </figure>
   </div>
   <div class="column is-3">
-    <a href="/user/<%= like.id %>"<h2><%= like.username %></h2></a>
-    <h2> <%= like.followers.length %>
+    <a href="/user/<%= like.id %>"<h2 class="standard-text-style"><b><%= like.username %></b></h2></a>
+    <h2 class="standard-text-style"> <b><%= like.followers.length %></b>
       <% if (like.followers.length === 1) { %>
         FOLLOWER
         <% }  else { %>
@@ -21,3 +23,5 @@
   </div>
   </div>
 <% }) %>
+</div>
+<section>
