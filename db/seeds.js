@@ -68,7 +68,7 @@ User
         {
           uploadedBy: users[0].id,
           imageURL: 'https://i.imgur.com/dqRBSck.png',
-          dateUploaded: 'Jul 05, 18, 12:37:12PM',
+          dateUploaded: 'Jul 05, 18, 12:37:12 PM',
           tags: [
             'deep', 'colourful', 'digitalart'
           ],
@@ -79,7 +79,7 @@ User
         },{
           uploadedBy: users[1].id,
           imageURL: 'https://i.imgur.com/PJHo29R.png',
-          dateUploaded: 'Apr 06, 18, 12:37:12PM',
+          dateUploaded: 'Apr 06, 18, 12:37:12 PM',
           tags: [
             'newcontemporyart', 'newmasters', 'italianpainter'
           ],
@@ -90,7 +90,7 @@ User
         },{
           uploadedBy: users[1].id,
           imageURL: 'https://i.imgur.com/dDeQWws.png',
-          dateUploaded: 'Aug 01, 18, 12:37:13PM',
+          dateUploaded: 'Aug 01, 18, 12:37:13 PM',
           tags: [
             'newcontemporyart', 'newmasters', 'italianpainter'
           ],
@@ -101,7 +101,7 @@ User
         },{
           uploadedBy: users[1].id,
           imageURL: 'https://i.imgur.com/uDcXLSG.png',
-          dateUploaded: 'Mar 28, 18, 12:37:13PM',
+          dateUploaded: 'Mar 28, 18, 12:37:13 PM',
           tags: [
             'newcontemporaryart', 'newmasters', 'italianpainter'
           ],
@@ -112,7 +112,7 @@ User
         },{
           uploadedBy: users[2].id,
           imageURL: 'https://i.imgur.com/CtcbXxe.png',
-          dateUploaded: 'Aug 01, 18, 12:37:17PM',
+          dateUploaded: 'Aug 01, 18, 12:37:17 PM',
           tags: [
             'selfportrait', 'mondayfeels'
           ],
@@ -123,7 +123,7 @@ User
         },{
           uploadedBy: users[2].id,
           imageURL: 'https://i.imgur.com/sfbMwZq.png',
-          dateUploaded: 'Aug 01, 18, 12:37:17PM',
+          dateUploaded: 'Aug 01, 18, 12:37:17 PM',
           tags: [
             'painting'
           ],
@@ -134,7 +134,7 @@ User
         },{
           uploadedBy: users[3].id,
           imageURL: 'https://i.imgur.com/kGej8Fh.png',
-          dateUploaded: 'Feb 08, 18, 12:37:30PM',
+          dateUploaded: 'Feb 08, 18, 12:37:30 PM',
           tags: [
             'graffiti', 'wallart', 'mural', 'streetart', 'portugal'
           ],
@@ -145,7 +145,7 @@ User
         },{
           uploadedBy: users[3].id,
           imageURL: 'https://i.imgur.com/g21c026.png',
-          dateUploaded: 'Aug 01, 18, 12:37:35PM',
+          dateUploaded: 'Aug 01, 18, 12:37:35 PM',
           tags: [
             'painting'
           ],
@@ -156,7 +156,7 @@ User
         },{
           uploadedBy: users[3].id,
           imageURL: 'https://i.imgur.com/taHxH0O.png',
-          dateUploaded: 'Aug 01, 18, 12:37:35PM',
+          dateUploaded: 'Aug 01, 18, 12:37:35 PM',
           tags: [
             'painting'
           ],
@@ -167,7 +167,7 @@ User
         },{
           uploadedBy: users[3].id,
           imageURL: 'https://i.imgur.com/kn0E8NZ.png',
-          dateUploaded: 'Jul 23, 18, 12:37:35PM',
+          dateUploaded: 'Jul 23, 18, 12:37:35 PM',
           tags: [
             'oilpainting', 'old', 'contemporaryart', 'colourful', 'creative'
           ],
@@ -178,7 +178,7 @@ User
         },{
           uploadedBy: users[3].id,
           imageURL: 'https://i.imgur.com/ioAiGby.png',
-          dateUploaded: 'Aug 01, 18, 12:37:35PM',
+          dateUploaded: 'Aug 01, 18, 12:37:35 PM',
           tags: [
             'courage', 'mural', 'graffiti', 'sprayart', 'streetart'
           ],
