@@ -49,8 +49,10 @@ btn.addEventListener('click', function () {
  transformations: {
    crop: {
      aspectRatio: 1,
-     force: true
-  })
+    force: true
+    }
+    }
+})
   .then(function(data) {
     document.getElementById('profilePicture').value = data.filesUploaded[0].url;
   })
