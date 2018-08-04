@@ -139,8 +139,7 @@ User
           newlyPosted: true
         },{
           uploadedBy: users[3].id,
-          imageURL:
-          'https://i.imgur.com/g21c026.png',
+          imageURL: 'https://i.imgur.com/g21c026.png',
           dateUploaded: '',
           tags: [
             'graffiti', 'wallart', 'mural', 'streetart', 'portugal'
