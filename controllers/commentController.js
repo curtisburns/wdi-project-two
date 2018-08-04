@@ -4,6 +4,7 @@ function commentsCreate(req, res) {
   Image
     .findById(req.params.imageId)
     .then(image => {
+      image.newlyPosted = false;
       image.comments.push(req.body);
       return image.save();
     })
@@ -15,6 +16,7 @@ function commentsDelete(req, res, next) {
   Image
     .findById(req.params.imageId)
     .then(image => {
+      image.newlyPosted = false;
       image.comments = image.comments.filter(comment => comment.id !== req.params.commentId
       );
       console.log(image.comments);

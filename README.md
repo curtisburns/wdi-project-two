@@ -34,41 +34,64 @@ ___
 # Wireframes
 
 ## Home
+
  ![Home](readme-images/Home.png)
 
 ## Registration
+
  ![Registration](readme-images/Registration.png)
 
 ## Login
+
  ![Login](readme-images/Login.png)
 
 ## Index
+
  ![Index](readme-images/Index.png)
 
 ## Followers
+
  ![Followers](readme-images/Followers.png)
 
 ## New Image
+
  ![New Image](readme-images/New-Image.png)
 
 ## New Comments
+
  ![New Comments](readme-images/New-Comments.png)
 ___
 # Screenshots
 
 ## Explore page
+
 ![Explore page](./readme-images/explore-page.png)
 
 ## Filestack demo for add image
+
 ![Filestack demo](./readme-images/filestack-demo.png)
 
+## Navbar/burger menu - mobile
+
+![Navbar on mobile](readme-images/mobile.png)
+
+![Navbar on mobile 2](readme-images/burger-menu-open.png)
+
+
 ## Search results page
+
 ![Search Results page](./readme-images/search-results-page.png)
 
+## Image show page
+
+![Image show page](./readme-images/comments.png)
+
 ## User profile page
+
 ![User page](./readme-images/user-page.png)
 
 ## User followers page
+
 ![Followers page](./readme-images/followers-page.png)
 
 ___
