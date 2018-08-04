@@ -1,12 +1,15 @@
 # Easel - Social Art Collective
-![Home Page](./easel-homepage.png)
+![Home Page](./readme-images/easel-homepage.png)
 
+[Visit the Easel app on Heroku](http://bit.ly/EaselSAC)
+
+[View the Galactic Assembly Arcade Game on GitHub](https://github.com/curtisburns/wdi-project-one)
 ## Overview
 
 For our second project, we had the option to either do a restaurant review site,
 blogging site, or an instagram clone. Easel is an instagram style site that
 gives artists to ability to showcase their art within a clean, minimalistic
-user interface
+user interface.
 
 
 # Game instructions
