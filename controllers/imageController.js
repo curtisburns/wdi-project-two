@@ -14,6 +14,7 @@ function imagesShow(req, res) {
   Image
     .findById(req.params.imageId)
     .populate('uploadedBy')
+    //populate comments.created by
     .then(image => res.render('images/show', { image }));
 }
 
@@ -22,9 +23,8 @@ function imagesNew(req, res) {
 }
 
 function imagesCreate(req, res) {
+  req.body.newlyPosted = true;
   req.body.uploadedBy = req.session.userId;
-  req.body.dateUploaded = new Date().toLocaleString('en-gb', {
-    month: 'short', day: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
   req.body.tags = req.body.tags.split(' ');
   Image
     .create(req.body)
@@ -43,6 +43,7 @@ function imagesEdit(req, res) {
 
 function imagesUpdate(req, res) {
   req.body.tags = req.body.tags.split(' ');
+  req.body.newlyPosted = false;
   Image
     .findByIdAndUpdate(req.params.imageId, req.body)
     .then(image => res.redirect(`/images/${image.id}`))

@@ -13,20 +13,20 @@
           </a>
           <div class="columns is-vcentered is-gapless">
           <div class="column is-8">
-            <h2 class="date-posted subtitle standard-text-style is-7"> Posted: <%= image.dateUploaded.slice(0,-13)%> </h2>
+            <h2 class="date-posted subtitle standard-text-style is-7"> Posted: <%= image.timeAgo%> </h2>
           </div>
           <div class="column is-4">
             <%- include('../likes/new', { image }) %>
           </div>
         </div>
         <h3 class="standard-text-style caption"> <%= image.caption %> </h3>
-          <form action="/search/index" method="POST">
         <% image.tags.forEach(tag => { %>
 
+          <form action="/search/index" method="POST">
             <input type="hidden" name="searchTerm" value="<%= tag %>">
             <button type="tag" name="button"><%= tag %></button>
+            </form>
         <% }) %>
-      </form>
         </div>
         <% }) %>
       </div>

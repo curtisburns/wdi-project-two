@@ -6,6 +6,7 @@ function likesCreate(req, res) {
   Image
     .findById(req.params.imageId)
     .then(imageBeingLiked => {
+      imageBeingLiked.newlyPosted = false;
       imageBeingLiked.likes.push(req.session.userId);
       console.log('this is an image being liked' + imageBeingLiked);
       return imageBeingLiked.save();
@@ -36,6 +37,7 @@ function likesDelete(req, res) {
   Image
     .findById(req.params.imageId)
     .then(imageBeingUnliked => {
+      imageBeingUnliked.newlyPosted = false;
       imageBeingUnliked.likes = imageBeingUnliked.likes.filter(likers =>
         likers.toString() !== req.session.userId.toString());
       return imageBeingUnliked.save();
