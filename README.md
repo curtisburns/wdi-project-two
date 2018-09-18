@@ -10,8 +10,6 @@ For our second project, we had the option to either do a restaurant review site,
 blogging site, or an instagram clone. Easel is an instagram style site that
 gives artists to ability to showcase their art within a clean, minimalistic
 user interface.
-
-# Project brief
 ___
 # Technologies used:
 
