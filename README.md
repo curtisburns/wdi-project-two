@@ -1,5 +1,8 @@
 # Easel - Social Art Collective
-![Home Page](./readme-images/easel-homepage.png)
+
+ <p align="center">
+  <img height=530 alt="Home Page" src="./readme-images/easel-homepage.png">
+</p>
 
 [Visit the Easel app on Heroku](http://bit.ly/EaselSAC)
 
@@ -32,65 +35,87 @@ ___
 # Wireframes
 
 ## Home
+ 
+ <p align="center">
+  <img height=630 alt="Home" src="readme-images/Home.png">
+</p>
 
- ![Home](readme-images/Home.png)
 
 ## Registration
-
- ![Registration](readme-images/Registration.png)
+<p align="center">
+  <img height=630 alt="Registration" src="readme-images/Registration.png">
+</p>
 
 ## Login
-
- ![Login](readme-images/Login.png)
+<p align="center">
+  <img height=630 alt="Login" src="readme-images/Login.png">
+</p>
 
 ## Index
-
- ![Index](readme-images/Index.png)
+<p align="center">
+  <img height=630 alt="Index" src="readme-images/Index.png">
+</p>
 
 ## Followers
-
- ![Followers](readme-images/Followers.png)
+<p align="center">
+  <img height=630 alt="Followers" src="readme-images/Followers.png">
+</p>
 
 ## New Image
-
- ![New Image](readme-images/New-Image.png)
+<p align="center">
+  <img height=630 alt="New Image" src="readme-images/New-Image.png">
+</p>
 
 ## New Comments
-
- ![New Comments](readme-images/New-Comments.png)
+<p align="center">
+  <img height=630 alt="New Comments" src="readme-images/New-Comments.png">
+</p>
 ___
 # Screenshots
 
 ## Explore page
 
-![Explore page](./readme-images/explore-page.png)
+<p align="center">
+  <img height=630 alt="Explore page" src="./readme-images/explore-page.png">
+</p>
 
 ## Filestack demo for add image
 
-![Filestack demo](./readme-images/filestack-demo.png)
+<p align="center">
+  <img height=630 alt="Filestack demo" src="./readme-images/filestack-demo.png">
+</p>
 
 ## Navbar/burger menu - mobile
 
-![Navbar on mobile](readme-images/mobile.png)
+<p align="center">
+  <img height=630 alt="Navbar on mobile" src="readme-images/mobile.png">
+</p>
 
-![Navbar on mobile 2](readme-images/burger-menu-open.png)
-
+<p align="center">
+  <img height=630 alt="Navbar on mobile 2" src="readme-images/burger-menu-open.png">
+</p>
 
 ## Search results page
 
-![Search Results page](./readme-images/search-results-page.png)
+<p align="center">
+  <img height=630 alt="Search Results page" src="./readme-images/search-results-page.png">
+</p>
 
 ## Image show page
 
-![Image show page](./readme-images/comments.png)
+<p align="center">
+  <img height=630 alt="Image show page" src="./readme-images/comments.png">
+</p>
 
 ## User profile page
-
-![User page](./readme-images/user-page.png)
+<p align="center">
+  <img height=630 alt="User page" src="./readme-images/user-page.png">
+</p>
 
 ## User followers page
-
-![Followers page](./readme-images/followers-page.png)
+<p align="center">
+  <img height=200 alt="Followers page" src="./readme-images/followers-page.png">
+</p>
 
 ___
 # Approach taken
