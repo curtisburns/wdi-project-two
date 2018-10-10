@@ -1,5 +1,8 @@
 # Easel - Social Art Collective
-![Home Page](./readme-images/easel-homepage.png)
+
+ <p align="center">
+  <img height=530 alt="Home Page" src="./readme-images/easel-homepage.png">
+</p>
 
 [Visit the Easel app on Heroku](http://bit.ly/EaselSAC)
 
@@ -8,10 +11,8 @@
 
 For our second project, we had the option to either do a restaurant review site,
 blogging site, or an instagram clone. Easel is an instagram style site that
-gives artists to ability to showcase their art within a clean, minimalistic
+gives artists the ability to showcase their art within a clean, minimalistic
 user interface.
-
-# Project brief
 ___
 # Technologies used:
 
@@ -35,79 +36,101 @@ ___
 
 ## Home
 
- ![Home|50x50, 20%](readme-images/Home.png)
+ <p align="center">
+  <img height=630 alt="Home" src="readme-images/Home.png">
+</p>
+
 
 ## Registration
-
- ![Registration](readme-images/Registration.png)
+<p align="center">
+  <img height=630 alt="Registration" src="readme-images/Registration.png">
+</p>
 
 ## Login
-
- ![Login](readme-images/Login.png)
+<p align="center">
+  <img height=630 alt="Login" src="readme-images/Login.png">
+</p>
 
 ## Index
-
- ![Index](readme-images/Index.png)
+<p align="center">
+  <img height=630 alt="Index" src="readme-images/Index.png">
+</p>
 
 ## Followers
-
- ![Followers](readme-images/Followers.png)
+<p align="center">
+  <img height=630 alt="Followers" src="readme-images/Followers.png">
+</p>
 
 ## New Image
-
- ![New Image](readme-images/New-Image.png)
+<p align="center">
+  <img height=630 alt="New Image" src="readme-images/New-Image.png">
+</p>
 
 ## New Comments
-
- ![New Comments](readme-images/New-Comments.png)
+<p align="center">
+  <img height=630 alt="New Comments" src="readme-images/New-Comments.png">
+</p>
 ___
 # Screenshots
 
 ## Explore page
 
-![Explore page](./readme-images/explore-page.png)
+<p align="center">
+  <img height=630 alt="Explore page" src="./readme-images/explore-page.png">
+</p>
 
 ## Filestack demo for add image
 
-![Filestack demo](./readme-images/filestack-demo.png)
+<p align="center">
+  <img height=630 alt="Filestack demo" src="./readme-images/filestack-demo.png">
+</p>
 
 ## Navbar/burger menu - mobile
 
-![Navbar on mobile](readme-images/mobile.png)
+<p align="center">
+  <img height=630 alt="Navbar on mobile" src="readme-images/mobile.png">
+</p>
 
-![Navbar on mobile 2](readme-images/burger-menu-open.png)
-
+<p align="center">
+  <img height=630 alt="Navbar on mobile 2" src="readme-images/burger-menu-open.png">
+</p>
 
 ## Search results page
 
-![Search Results page](./readme-images/search-results-page.png)
+<p align="center">
+  <img height=630 alt="Search Results page" src="./readme-images/search-results-page.png">
+</p>
 
 ## Image show page
 
-![Image show page](./readme-images/comments.png)
+<p align="center">
+  <img height=630 alt="Image show page" src="./readme-images/comments.png">
+</p>
 
 ## User profile page
-
-![User page](./readme-images/user-page.png)
+<p align="center">
+  <img height=630 alt="User page" src="./readme-images/user-page.png">
+</p>
 
 ## User followers page
-
-![Followers page](./readme-images/followers-page.png)
+<p align="center">
+  <img height=200 alt="Followers page" src="./readme-images/followers-page.png">
+</p>
 
 ___
 # Approach taken
 
 When starting the project, my plan was to input as much functionality as possible to bring it close to how the instagram app worked before I began styling. Having tried to fit in as much functionality as possible using technologies we had only used for a week within 6 days meant that I was pushed for time when styling, and this meant that I could not fully translate what I envisioned into the app. If I could do this again, I would focus on the most important functions like following, likes and not things like date posted etc. Then I would style throughout the development process as it is quite vital in this case.  
 ___
-# Wins
-
-Mi biggest win would be the integration of the Filestack API. Having gone through sorting out an account to actually implementing this to my app, something we had not learnt how to do in class at this point in time, and then seeing it working was a triumph.
-
-Another win for me was the realisation that, while nowhere near as solid or functional, I had built something that resembled the instagram app which is widely used across the world. I could even repurpose my app so that it could be something close family could use.
-___
 # Blockers
 
 My main blocker was getting used to Bulma. While I had used it before only briefly, I could not use it confidently as I thought it quite restrictive when applying your own styling. Towards the end of the project where I had yet to do styling, I thought that as Bulma can speed up the process I could use this. My mistake was that because I wasn't confident with using it and the lack of planning around my page structure coupled up with the fact the Bulma is very 'div' intensive at times, most of my time was spent trying to figure out why my pages weren't structuring themselves in the way I thought. Even now at the time of writing this, there is a bug on the image-show page where an invisible section covers the bottom half of the page, restricting access for the user to like the image or click on any tags. I feel I'll have to rebuild the page from scratch in order to understand what has gone wrong.
+___
+# Wins
+
+My biggest win would be the integration of the Filestack API. Having gone through sorting out an account to actually implementing this to my app, something we had not learnt how to do in class at this point in time, and then seeing it working was a triumph.
+
+Another win for me was the realisation that, while nowhere near as solid or functional, I had built something that resembled the instagram app which is widely used across the world. I could even repurpose my app so that it could be something close family could use.
 ___
 # Future features
 
