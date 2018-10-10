@@ -69,6 +69,7 @@ footer {
 
 .wrapper {
   margin-top: 40px;
+  min-height: 80vh;
 }
 
 /* Home */
@@ -160,4 +161,8 @@ h2.username-on-index {
 
 .comments {
   margin-top: 30px;
+}
+
+form.register, form.login, form.image-upload {
+  padding: 20px 10vw;
 }

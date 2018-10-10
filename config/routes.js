@@ -1,10 +1,6 @@
-// TODO: make a model for index to show content
-// TODO: add register and log in buttons to home pages
-// TODO: configure exhibitionController
-
-
 // initiates file as router via express method
 const router = require('express').Router();
+
 const imageController = require('../controllers/imageController');
 const registrationController = require('../controllers/registrationController');
 const sessionController = require('../controllers/sessionController');
@@ -25,13 +21,12 @@ function secureRoute(req, res, next) {
       res.redirect('/');
     });
   }
-
   return next();
 }
 
-// can only have on get per url - which makes sense...
 // home page
-//This should only be accessible if not logged in. Otherwise, home is images
+//This should only be accessible if not logged in. Otherwise, homepage is
+//images (exhibition)
 router.route('/')
   .get((req, res) => res.render('pages/home'));
 
@@ -74,10 +69,10 @@ router.route('/session/new')
 router.route('/session')
   .post(sessionController.create);
 
-//is this RESTful?? come back to this.
 router.route('/session/delete')
   .get(secureRoute, sessionController.delete);
 
+// user specific
 router.route('/user/:id')
   .get(secureRoute, userController.show)
   .put(secureRoute, userController.update);
@@ -92,10 +87,8 @@ router.route('/user/:id/following')
 router.route('/user/:id/edit')
   .get(secureRoute, userController.edit);
 
-
 router.route('/user/:id/exhibition')
   .get(secureRoute, exhibitionController.index);
-
 
 router.route('/user/:userId/following/:followingId')
   .delete(secureRoute, followingController.delete);

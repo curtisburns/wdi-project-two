@@ -35,7 +35,7 @@ ___
 
 ## Home
 
- ![Home](readme-images/Home.png)
+ ![Home|50x50, 20%](readme-images/Home.png)
 
 ## Registration
 
