@@ -8,6 +8,9 @@
     "refresh": "node db/seeds",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "9.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/curtisburns/wdi-project-two.git"
